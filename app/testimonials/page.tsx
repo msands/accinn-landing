@@ -23,7 +23,7 @@ export default function TestimonialsPage() {
             <div className="bg-black bg-opacity-80 rounded-lg p-8 border-l-4 border-gold mb-8 md:mb-0">
               <h2 className="text-2xl font-bold text-gold mb-4">Pilot Testimonial</h2>
               <p className="text-white italic mb-4">
-                "Accent Innovations' technology made my cockpit communication crystal clear, even in the busiest airspace."
+                &quot;Accent Innovations&apos; technology made my cockpit communication crystal clear, even in the busiest airspace.&quot;
               </p>
               <p className="text-gold">— Captain A. Singh, Commercial Pilot</p>
             </div>

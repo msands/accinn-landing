@@ -234,8 +234,8 @@ export default function Home() {
                   ))}
                 </div>
                 <blockquote className="text-xl text-bluegray text-center mb-6 italic">
-                  "This technology has revolutionized how we communicate with ATC. The clarity improvements are
-                  immediately noticeable and have enhanced our safety protocols significantly."
+                  &quot;This technology has revolutionized how we communicate with ATC. The clarity improvements are
+                  immediately noticeable and have enhanced our safety protocols significantly.&quot;
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">

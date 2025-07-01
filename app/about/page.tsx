@@ -59,8 +59,8 @@ export default function AboutPage() {
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-l-amber-600 mb-6">
                   <p className="text-amber-800 font-medium italic text-lg">
-                    "Every clear communication saves lives and reduces costs. Our technology makes this possible at
-                    scale, transforming how aviation professionals interact in critical moments."
+                    &quot;Every clear communication saves lives and reduces costs. Our technology makes this possible at
+                    scale, transforming how aviation professionals interact in critical moments.&quot;
                   </p>
                   <p className="text-amber-700 font-semibold mt-4">- Dr. Pierson, Founder & CEO</p>
                 </div>
