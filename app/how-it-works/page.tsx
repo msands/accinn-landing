@@ -83,7 +83,7 @@ export default function HowItWorksPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600">
-                    The app tracks users' improvement over time, showing their progress for each target vowel.
+                    The app tracks users&apos; improvement over time, showing their progress for each target vowel.
                   </p>
                 </CardContent>
               </Card>
@@ -158,7 +158,7 @@ export default function HowItWorksPage() {
                       </li>
                       <li className="flex items-start space-x-2">
                         <CheckCircle className="h-3 w-3 text-amber-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">Customization based on user's native language patterns and English accent</span>
+                        <span className="text-sm">Customization based on user&apos;s native language patterns and English accent</span>
                       </li>
                     </ul>
                   </div>
