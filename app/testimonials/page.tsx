@@ -165,7 +165,7 @@ export default function TestimonialsPage() {
                   <Quote className="h-8 w-8 text-amber-600 mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-lg text-slate-700 mb-4 italic">
-                      "{testimonials[0].quote}"
+                      &quot;{testimonials[0].quote}&quot;
                     </p>
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-amber-700">{testimonials[0].author}</span>
@@ -221,7 +221,7 @@ export default function TestimonialsPage() {
                 <CardContent className="p-8 text-center">
                   <Quote className="h-8 w-8 text-amber-600 mx-auto mb-4" />
                   <p className="text-lg text-slate-700 mb-6 italic">
-                    "{testimonials[currentIndex].quote}"
+                    &quot;{testimonials[currentIndex].quote}&quot;
                   </p>
                   <div className="flex flex-col items-center gap-1">
                     <span className={`font-semibold ${getTypeColor(testimonials[currentIndex].type)}`}>
