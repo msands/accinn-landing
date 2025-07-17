@@ -15,7 +15,7 @@ export function Footer() {
                 <span className="text-xl font-bold">Accent Innovations</span>
               </div>
               <p className="text-slate-400 mb-4">
-                Revolutionizing aviation communication with AI-powered clarity and safety.
+                “Transforming unclear communication with individualized accent and speech training for clear, confident operations.”
               </p>
               <div className="flex space-x-4">
                 <Button size="sm" variant="ghost" className="text-slate-400 hover:text-white">
