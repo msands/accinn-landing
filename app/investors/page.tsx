@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { TrendingUp, Shield, Users, DollarSign, Target, Award, AlertTriangle, Globe, Clock, Zap, CheckCircle, FileText } from "lucide-react"
+import { TrendingUp, Shield, Users, DollarSign, Award, AlertTriangle, Globe, Clock, CheckCircle, FileText } from "lucide-react"
 
 export default function InvestorsPage() {
   return (
@@ -295,7 +295,7 @@ export default function InvestorsPage() {
                   <div className="w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <span className="text-slate-400 text-xs font-semibold">WAN</span>
                   </div>
-                  <h3 className="font-semibold text-slate-800 mb-2">Women's Aerospace</h3>
+                  <h3 className="font-semibold text-slate-800 mb-2">Women&apos;s Aerospace</h3>
                   <p className="text-sm text-slate-600">Network</p>
                 </CardContent>
               </Card>
