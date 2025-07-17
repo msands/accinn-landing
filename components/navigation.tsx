@@ -22,9 +22,6 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/about" className="text-slate-600 hover:text-amber-700 font-medium">
-              About
-            </Link>
             <Link href="/how-it-works" className="text-slate-600 hover:text-amber-700 font-medium">
               How It Works
             </Link>
@@ -34,14 +31,14 @@ export function Navigation() {
             <Link href="/pricing" className="text-slate-600 hover:text-amber-700 font-medium">
               Pricing
             </Link>
-            <Link href="/testimonials" className="text-slate-600 hover:text-amber-700 font-medium">
-              Testimonials
-            </Link>
-            <Link href="/investors" className="text-slate-600 hover:text-amber-700 font-medium">
-              Investors
+            <Link href="/about" className="text-slate-600 hover:text-amber-700 font-medium">
+              About
             </Link>
             <Link href="/contact" className="text-slate-600 hover:text-amber-700 font-medium">
               Contact
+            </Link>
+            <Link href="/investors" className="text-slate-600 hover:text-amber-700 font-medium">
+              Investor Info
             </Link>
           </nav>
 
@@ -107,9 +104,6 @@ export function Navigation() {
         {isOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t pt-4">
             <div className="flex flex-col space-y-4">
-              <Link href="/about" className="text-slate-600 hover:text-amber-700 font-medium">
-                About
-              </Link>
               <Link href="/how-it-works" className="text-slate-600 hover:text-amber-700 font-medium">
                 How It Works
               </Link>
@@ -119,14 +113,14 @@ export function Navigation() {
               <Link href="/pricing" className="text-slate-600 hover:text-amber-700 font-medium">
                 Pricing
               </Link>
-              <Link href="/testimonials" className="text-slate-600 hover:text-amber-700 font-medium">
-                Testimonials
-              </Link>
-              <Link href="/investors" className="text-slate-600 hover:text-amber-700 font-medium">
-                Investors
+              <Link href="/about" className="text-slate-600 hover:text-amber-700 font-medium">
+                About
               </Link>
               <Link href="/contact" className="text-slate-600 hover:text-amber-700 font-medium">
                 Contact
+              </Link>
+              <Link href="/investors" className="text-slate-600 hover:text-amber-700 font-medium">
+                Investor Info
               </Link>
             </div>
           </nav>
