@@ -36,7 +36,7 @@ export default function Home() {
               Enhance safety, reduce miscommunication, and improve operational efficiency with our research-backed
               linguistic technology designed specifically for aviation professionals.
             </p>
-            <Button size="lg" className="bg-tan text-white hover:bg-tan-dark px-8 py-4 text-lg shadow-lg" onClick={() => setShowWaitlist(true)}>
+            <Button size="lg" className="bg-amber-700 text-white hover:bg-amber-800 px-8 py-4 text-lg shadow-lg" onClick={() => setShowWaitlist(true)}>
               Join Waitlist
             </Button>
           </div>
@@ -83,7 +83,7 @@ export default function Home() {
                       placeholder="you@email.com"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-tan text-white hover:bg-tan-dark">
+                  <Button type="submit" className="w-full bg-amber-700 text-white hover:bg-amber-800">
                     Join Waitlist
                   </Button>
                 </form>
@@ -208,7 +208,7 @@ export default function Home() {
                   </Button>
                 </Link> */}
                 <Link href="/pricing">
-                  <Button className="w-full bg-tan text-white hover:bg-tan-dark">
+                  <Button className="w-full bg-amber-700 text-white hover:bg-amber-800">
                     View Pricing
                   </Button>
                 </Link>
@@ -250,7 +250,7 @@ export default function Home() {
             </Card>
             <div className="text-center mt-8">
               <Link href="/testimonials">
-                <Button className="bg-tan text-white hover:bg-tan-dark">
+                <Button className="bg-amber-700 text-white hover:bg-amber-800">
                   Read More Testimonials <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -302,7 +302,7 @@ export default function Home() {
             </div>
             <div className="text-center mt-8">
               <Link href="/industries">
-                <Button className="bg-tan text-white hover:bg-tan-dark">
+                <Button className="bg-amber-700 text-white hover:bg-amber-800">
                   Explore All Industries <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -322,7 +322,7 @@ export default function Home() {
             {/* <Button size="lg" className="bg-tan text-white hover:bg-tan-dark px-8 py-4 text-lg" asChild>
               <a href="/contact">Request Demo <ArrowRight className="ml-2 h-5 w-5" /></a>
             </Button> */}
-            <Button size="lg" className="bg-tan text-white hover:bg-tan-dark px-8 py-4 text-lg" asChild>
+            <Button size="lg" className="bg-amber-700 text-white hover:bg-amber-800 px-8 py-4 text-lg" asChild>
               <a href="#waitlist">Join Waitlist</a>
             </Button>
           </div>
