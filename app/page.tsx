@@ -4,13 +4,33 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Plane, Shield, TrendingUp, ArrowRight, Star, CheckCircle, Award, Users, Target } from "lucide-react"
+import { Plane, Shield, TrendingUp, ArrowRight, Star, CheckCircle, Award, Users, Target, Truck, Rocket } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
 export default function Home() {
   const [showWaitlist, setShowWaitlist] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [carouselIndex, setCarouselIndex] = useState(0)
+
+  const carouselQuotes = [
+    {
+      quote: "Dr. Pierson's professional help was the ladder to all my successes.",
+      author: "S. Z., Sichuan Airlines"
+    },
+    {
+      quote: "The way I say sentences is clearer. I've noticed a special improvement in pronunciation which makes me more confident.",
+      author: "D. Z., China Eastern Airlines"
+    },
+    {
+      quote: "I highly recommend this experience to other pilots because it can help others understand you by modifying your pronunciation and learning new words unique to your needs.",
+      author: "X. Z., China Eastern Airlines"
+    }
+  ]
+
+  const nextQuote = () => setCarouselIndex((carouselIndex + 1) % carouselQuotes.length)
+  const prevQuote = () => setCarouselIndex((carouselIndex - 1 + carouselQuotes.length) % carouselQuotes.length)
+  const goToQuote = (idx: number) => setCarouselIndex(idx)
 
   return (
     <div className="min-h-screen bg-bluegray">
@@ -28,13 +48,12 @@ export default function Home() {
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
-            <Badge className="bg-tan text-white mb-6 px-4 py-2 font-semibold tracking-wide">Patent-Pending Technology</Badge>
+            <Badge className="bg-amber-700 text-white mb-6 px-4 py-2 font-semibold tracking-wide">Patent-Pending Technology</Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
-              Revolutionizing Aviation Communication with <span className="text-gold">AI-Powered Clarity</span>
+              Solving the $33 Billion Aviation Miscommunication Problem with <span className="text-gold">AI-Driven</span> Speech Precision.
             </h1>
             <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
-              Enhance safety, reduce miscommunication, and improve operational efficiency with our research-backed
-              linguistic technology designed specifically for aviation professionals.
+              Cut costly verbal miscommunications and enhance aviation safety with our patent-pending AI speech technology built for pilots.
             </p>
             <Button size="lg" className="bg-amber-700 text-white hover:bg-amber-800 px-8 py-4 text-lg shadow-lg" onClick={() => setShowWaitlist(true)}>
               Join Waitlist
@@ -98,7 +117,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="bg-tan text-white mb-4 px-4 py-2 font-semibold tracking-wide">Problem & Solution</Badge>
+              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Problem & Solution</Badge>
               <h2 className="text-3xl font-bold text-bluegray mb-4">
                 The Critical Problem: Communication Failures Cost Lives and Money
               </h2>
@@ -115,7 +134,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 mb-4">
-                    Communication errors contribute to 70% of aviation incidents, putting lives at risk.
+                    Miscommunication errors are linked to nearly 80% of aviation accidents worldwide, costing the industry billions and endangering lives every day. With global pilot diversity at an all-time high, accented speech has become a leading cause of these miscommunications.
                   </p>
                   <p className="text-sm text-red-600 font-medium">Critical Issue</p>
                 </CardContent>
@@ -127,7 +146,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 mb-4">
-                    Miscommunication leads to delays, rerouting, and increased fuel consumption.
+                    Miscommunication causes costly delays, operational errors, serious safety risks and inefficiencies which amount to $33 billion annually in the US alone, and tens of billions globally
                   </p>
                   <p className="text-sm text-gold font-medium">$Billions Lost Annually</p>
                 </CardContent>
@@ -139,7 +158,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 mb-4">
-                    AI-powered linguistic analysis ensures clear, precise communication every time.
+                    Backed by research and a patent-pending methodology, our technology transforms pilot verbal communication, reducing miscommunication incidents and driving safer, more efficient operations.
                   </p>
                   <p className="text-sm text-green-600 font-medium">Proven Results</p>
                 </CardContent>
@@ -154,9 +173,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="bg-tan text-white mb-4 px-4 py-2 font-semibold tracking-wide">Key Benefits</Badge>
+              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Key Benefits</Badge>
               <h2 className="text-3xl font-bold text-bluegray mb-4">Why Aviation Professionals Choose Us</h2>
-              <p className="text-lg text-gray-800">Research-backed technology with immediate, measurable results</p>
+              <p className="text-lg text-gray-800">Our technology is grounded in rigorous aviation and speech science research, delivering rapid impact with immediate, measurable improvements in pilot’s verbal clarity.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -166,9 +185,9 @@ export default function Home() {
                       <Award className="h-8 w-8 text-gold" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-bluegray mb-2">Patent-Pending IP</h3>
+                      <h3 className="text-xl font-bold text-bluegray mb-2">Patent-Pending Intellectual Property</h3>
                       <p className="text-gray-800">
-                        Unique methodology combining AI with linguistic science - no direct competitors in the market.
+                        Featuring a unique AI-driven methodology combined with speech science, Accent Innovations holds exclusive IP with no direct competitors offering comparable solutions.
                       </p>
                     </div>
                   </div>
@@ -179,8 +198,7 @@ export default function Home() {
                     <div>
                       <h3 className="text-xl font-bold text-bluegray mb-2">Industry Expertise</h3>
                       <p className="text-gray-800">
-                        Founded by Dr. Pierson, award-winning aviation safety expert with decades of industry
-                        experience.
+                        Founded by Dr. Katie Pierson, an award-winning accent modification researcher and recognized expert in accented pilot communications.
                       </p>
                     </div>
                   </div>
@@ -200,18 +218,18 @@ export default function Home() {
               <div className="bg-gray-100 p-8 rounded-lg shadow-lg">
                 <h3 className="text-2xl font-bold text-bluegray mb-6">Ready to See How It Works?</h3>
                 <p className="text-gray-800 mb-6">
-                  Discover our 4-step process that transforms aviation communication using AI and linguistic science.
+                  Discover our 4-step process that transforms unintelligible aviation communications.
                 </p>
-                {/* <Link href="/how-it-works">
-                  <Button className="w-full bg-tan text-white hover:bg-tan-dark mb-4">
+                <Link href="/how-it-works">
+                  <Button className="w-full bg-amber-700 text-white hover:bg-amber-800 mb-4">
                     Learn How It Works <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-                </Link> */}
-                <Link href="/pricing">
+                </Link>
+                {/* <Link href="/pricing">
                   <Button className="w-full bg-amber-700 text-white hover:bg-amber-800">
                     View Pricing
                   </Button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -223,31 +241,55 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="bg-tan text-white mb-4 px-4 py-2 font-semibold tracking-wide">Social Proof</Badge>
+              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Social Proof</Badge>
               <h2 className="text-3xl font-bold text-bluegray mb-4">Trusted by Aviation Professionals</h2>
             </div>
-            <Card className="bg-white">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-6 w-6 text-gold fill-current" />
+            {/* Replace testimonial card with pilots.jpg image */}
+            <div className="flex justify-center mb-12">
+              <img
+                src="/pilots.jpg"
+                alt="Pilots using Accent Innovations technology"
+                className="rounded-lg shadow-lg max-w-full h-auto"
+                style={{ maxHeight: '320px', objectFit: 'cover' }}
+              />
+            </div>
+            {/* Carousel of Quotes */}
+            <div className="my-12">
+              <div className="relative max-w-2xl mx-auto">
+                <button
+                  aria-label="Previous"
+                  onClick={prevQuote}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-slate-200 rounded-full p-2 shadow hover:bg-slate-100 z-10"
+                  style={{ left: '-2.5rem' }}
+                >
+                  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button
+                  aria-label="Next"
+                  onClick={nextQuote}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-slate-200 rounded-full p-2 shadow hover:bg-slate-100 z-10"
+                  style={{ right: '-2.5rem' }}
+                >
+                  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+                </button>
+                <Card className="bg-white shadow-md">
+                  <CardContent className="p-8 text-center">
+                    <blockquote className="text-xl text-bluegray italic mb-4">&quot;{carouselQuotes[carouselIndex].quote}&quot;</blockquote>
+                    <div className="text-bluegray font-semibold">{carouselQuotes[carouselIndex].author}</div>
+                  </CardContent>
+                </Card>
+                <div className="flex justify-center mt-4 gap-2">
+                  {carouselQuotes.map((_, idx) => (
+                    <button
+                      key={idx}
+                      aria-label={`Go to quote ${idx + 1}`}
+                      onClick={() => goToQuote(idx)}
+                      className={`w-3 h-3 rounded-full transition-colors ${idx === carouselIndex ? 'bg-amber-700' : 'bg-slate-300 hover:bg-slate-400'}`}
+                    />
                   ))}
                 </div>
-                <blockquote className="text-xl text-bluegray text-center mb-6 italic">
-                  &quot;This technology has revolutionized how we communicate with ATC. The clarity improvements are
-                  immediately noticeable and have enhanced our safety protocols significantly.&quot;
-                </blockquote>
-                <div className="flex items-center justify-center">
-                  <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">
-                    <Plane className="h-6 w-6 text-gold" />
-                  </div>
-                  <div className="text-center">
-                    <p className="font-semibold text-bluegray">Captain Sarah Johnson</p>
-                    <p className="text-gray-800">Commercial Airline Pilot, 15+ Years Experience</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             <div className="text-center mt-8">
               <Link href="/testimonials">
                 <Button className="bg-amber-700 text-white hover:bg-amber-800">
@@ -264,7 +306,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="bg-tan text-white mb-4 px-4 py-2 font-semibold tracking-wide">Industries Served</Badge>
+              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Industries Served</Badge>
               <h2 className="text-3xl font-bold text-bluegray mb-4">Specialized for High-Stakes Industries</h2>
               <p className="text-lg text-gray-800">
                 Our technology serves critical communication environments where clarity saves lives and money
@@ -280,7 +322,7 @@ export default function Home() {
               </Card>
               <Card className="bg-gray-100 text-center hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center">
-                  <span className="text-gold text-[3rem] mb-4">🚀</span>
+                  <Rocket className="h-16 w-16 text-gold mb-4" />
                   <h3 className="font-bold text-bluegray mb-2">Aerospace</h3>
                   <p className="text-sm text-gray-800">Mission Critical</p>
                 </CardContent>
@@ -288,15 +330,15 @@ export default function Home() {
               <Card className="bg-gray-100 text-center hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center">
                   <Shield className="h-16 w-16 text-gold mb-4" />
-                  <h3 className="font-bold text-bluegray mb-2">Defense</h3>
+                  <h3 className="font-bold text-bluegray mb-2">Joint Forces Training</h3>
                   <p className="text-sm text-gray-800">Operational Security</p>
                 </CardContent>
               </Card>
               <Card className="bg-gray-100 text-center hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center">
-                  <span className="text-gold text-[3rem] mb-4">🏥</span>
-                  <h3 className="font-bold text-bluegray mb-2">Healthcare</h3>
-                  <p className="text-sm text-gray-800">Patient Safety</p>
+                  <Truck className="h-16 w-16 text-gold mb-4" />
+                  <h3 className="font-bold text-bluegray mb-2">Commercial Trucking</h3>
+                  <p className="text-sm text-gray-800">Safety and Efficiency</p>
                 </CardContent>
               </Card>
             </div>
@@ -315,9 +357,9 @@ export default function Home() {
       <section className="py-16 bg-gradient-to-r from-tan to-gold text-bluegray">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Aviation Communication?</h2>
+            <h2 className="text-3xl font-bold mb-4">Ready to Transform Aviation Communication?</h2>
             <p className="text-xl text-bluegray mb-8">
-              Join leading aviation professionals who trust our AI-powered technology for safer, clearer communication.
+              Join leading pilots, airlines, and training organizations to achieve safer operations via understandable speech.
             </p>
             {/* <Button size="lg" className="bg-tan text-white hover:bg-tan-dark px-8 py-4 text-lg" asChild>
               <a href="/contact">Request Demo <ArrowRight className="ml-2 h-5 w-5" /></a>
