@@ -4,9 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Plane, Shield, TrendingUp, ArrowRight, Star, CheckCircle, Award, Users, Target, Truck, Rocket } from "lucide-react"
+import { Plane, Shield, TrendingUp, ArrowRight, CheckCircle, Award, Users, Target, Truck, Rocket } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import Image from "next/image"
 
 export default function Home() {
   const [showWaitlist, setShowWaitlist] = useState(false)
@@ -246,11 +247,14 @@ export default function Home() {
             </div>
             {/* Replace testimonial card with pilots.jpg image */}
             <div className="flex justify-center mb-12">
-              <img
+              <Image
                 src="/pilots.jpg"
                 alt="Pilots using Accent Innovations technology"
                 className="rounded-lg shadow-lg max-w-full h-auto"
                 style={{ maxHeight: '320px', objectFit: 'cover' }}
+                width={480}
+                height={320}
+                priority
               />
             </div>
             {/* Carousel of Quotes */}
