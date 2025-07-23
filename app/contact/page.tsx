@@ -37,7 +37,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-slate-800">Email</h3>
-                      <p className="text-slate-600">info@accentinnovations.com</p>
+                      <p className="text-slate-600">katie.pierson@accent-innovations.com</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -46,7 +46,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-slate-800">Phone</h3>
-                      <p className="text-slate-600">+1 (555) 123-4567</p>
+                      <p className="text-slate-600">+1 (503) 327-9366</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -55,7 +55,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-slate-800">Location</h3>
-                      <p className="text-slate-600">Aviation Technology Center, USA</p>
+                      <p className="text-slate-600">1975 NW 167th Pl #100, Beaverton, OR 97006</p>
                     </div>
                   </div>
                 </div>
