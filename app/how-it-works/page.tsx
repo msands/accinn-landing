@@ -14,9 +14,9 @@ export default function HowItWorksPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <Badge className="bg-amber-700 text-white mb-4">Technology</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">How Our App Revolutionizes Aviation Communication</h1>
+            <h1 className="text-4xl font-bold text-slate-800 mb-6">How Our AI Revolutionizes Aviation Communication</h1>
             <p className="text-xl text-slate-600">
-            At Accent Innovations, we believe every word in aviation should be understood the first time. Our proprietary methodology transforms accented speech into clear and comprehensible communication, ensuring safety and operational efficiency worldwide.
+              At Accent Innovations, we believe every word in aviation should be understood the first time. Our proprietary methodology transforms accented speech into clear and comprehensible communication, ensuring safety and operational efficiency worldwide.
             </p>
           </div>
         </div>
