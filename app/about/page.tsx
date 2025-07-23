@@ -32,7 +32,7 @@ export default function AboutPage() {
                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                   Dr. Katie Pierson is an award-winning speech-language pathologist and researcher dedicated to enhancing communication safety in aviation.
                   As the founder of Accent Innovations, Dr. Pierson has pioneered the first patent-pending accent modification protocol for pilots, significantly improving intelligibility and preventing miscommunication-related accidents. 
-                  Her groundbreaking work has not only advanced the field of speech therapy but also made a substantial impact on aviation safety, earning her recognition as an Aerospace Pioneer by the Women's Aerospace Network.
+                  Her groundbreaking work has not only advanced the field of speech therapy but also made a substantial impact on aviation safety, earning her recognition as an Aerospace Pioneer by the Women&apos;s Aerospace Network.
                 </p>
                 
                 <div className="space-y-6 mb-8">
@@ -40,7 +40,7 @@ export default function AboutPage() {
                     <div className="flex items-start space-x-4">
                       <Award className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="text-base font-bold text-slate-800 mb-2">Developer of Aviation's First Accent Modification Protocol</h3>
+                        <h3 className="text-base font-bold text-slate-800 mb-2">Developer of Aviation&apos;s First Accent Modification Protocol</h3>
                         <p className="text-slate-700 leading-relaxed">
                           Dr. Pierson created a groundbreaking protocol that enhances pilot communication, reducing the risk of miscommunication-related accidents.
                         </p>
@@ -64,9 +64,9 @@ export default function AboutPage() {
                     <div className="flex items-start space-x-4">
                       <Globe className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="text-base font-bold text-slate-800 mb-2">Aligned with the United Nation's SDGs 8 and 10</h3>
+                        <h3 className="text-base font-bold text-slate-800 mb-2">Aligned with the United Nation&apos;s SDGs 8 and 10</h3>
                         <p className="text-slate-700 leading-relaxed">
-                          Dr. Pierson's work promotes decent work, economic growth, and reduced inequalities by empowering non-native English-speaking pilots, contributing to global sustainable development goals.
+                          Dr. Pierson&apos;s work promotes decent work, economic growth, and reduced inequalities by empowering non-native English-speaking pilots, contributing to global sustainable development goals.
                         </p>
                       </div>
                     </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600">
-                    Contribute to the United Nation's Sustainable Development Goals by promoting exceptional work and economic growth 
+                    Contribute to the United Nation&apos;s Sustainable Development Goals by promoting exceptional work and economic growth 
                     through safer aviation practices and reducing inequalities by empowering diverse voices in aerospace.
                   </p>
                 </CardContent>
