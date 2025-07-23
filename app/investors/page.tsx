@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { TrendingUp, Shield, Users, DollarSign, Award, AlertTriangle, Globe, Clock, CheckCircle, FileText } from "lucide-react"
+import Image from "next/image"
 
 export default function InvestorsPage() {
   return (
@@ -262,8 +263,8 @@ export default function InvestorsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-slate-400 text-xs font-semibold">TiE Oregon</span>
+                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/TiEOregon.png" alt="TiE Oregon logo" width={96} height={96} className="object-contain max-h-24" />
                   </div>
                   <h3 className="font-semibold text-slate-800 mb-2">TiE Oregon</h3>
                   <p className="text-sm text-slate-600">Fostering Entrepreneurship</p>
@@ -272,8 +273,8 @@ export default function InvestorsPage() {
 
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-slate-400 text-xs font-semibold">Great Basin</span>
+                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/GBA.png" alt="Great Basin Aviation logo" width={96} height={96} className="object-contain max-h-24" />
                   </div>
                   <h3 className="font-semibold text-slate-800 mb-2">Great Basin Aviation</h3>
                   <p className="text-sm text-slate-600">Nevada</p>
@@ -282,8 +283,8 @@ export default function InvestorsPage() {
 
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-slate-400 text-xs font-semibold">WAI</span>
+                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/WAI.png" alt="Women in Aviation International logo" width={96} height={96} className="object-contain max-h-24" />
                   </div>
                   <h3 className="font-semibold text-slate-800 mb-2">Women in Aviation</h3>
                   <p className="text-sm text-slate-600">International</p>
@@ -292,8 +293,8 @@ export default function InvestorsPage() {
 
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-20 h-20 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-slate-400 text-xs font-semibold">WAN</span>
+                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/WAN.png" alt="Women&apos;s Aerospace Network logo" width={96} height={96} className="object-contain max-h-24" />
                   </div>
                   <h3 className="font-semibold text-slate-800 mb-2">Women&apos;s Aerospace</h3>
                   <p className="text-sm text-slate-600">Network</p>
