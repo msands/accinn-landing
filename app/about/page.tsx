@@ -26,32 +26,53 @@ export default function AboutPage() {
       <section className="py-16 bg-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-800 mb-6 text-center">Meet Dr. Katie Pierson: Aviation Safety and Speech Innovation Leader</h2>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-slate-800 mb-6">Meet Dr. Pierson: Aviation Safety Pioneer</h2>
-                <p className="text-lg text-slate-600 mb-6">
-                  Dr. Pierson brings decades of experience in aviation safety and linguistic research. With multiple
-                  awards and board positions in aviation organizations, she recognized the critical need for better
-                  communication tools in high-stakes environments.
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  Dr. Katie Pierson is an award-winning speech-language pathologist and researcher dedicated to enhancing communication safety in aviation.
+                  As the founder of Accent Innovations, Dr. Pierson has pioneered the first patent-pending accent modification protocol for pilots, significantly improving intelligibility and preventing miscommunication-related accidents. 
+                  Her groundbreaking work has not only advanced the field of speech therapy but also made a substantial impact on aviation safety, earning her recognition as an Aerospace Pioneer by the Women's Aerospace Network.
                 </p>
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center space-x-3">
-                    <Award className="h-5 w-5 text-amber-600" />
-                    <span className="text-slate-700">Multiple aviation safety awards and recognitions</span>
+                
+                <div className="space-y-6 mb-8">
+                  <div className="bg-slate-50 p-6 rounded-lg border-l-4 border-amber-600">
+                    <div className="flex items-start space-x-4">
+                      <Award className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-base font-bold text-slate-800 mb-2">Developer of Aviation's First Accent Modification Protocol</h3>
+                        <p className="text-slate-700 leading-relaxed">
+                          Dr. Pierson created a groundbreaking protocol that enhances pilot communication, reducing the risk of miscommunication-related accidents.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Users className="h-5 w-5 text-amber-600" />
-                    <span className="text-slate-700">Board member of leading aviation organizations</span>
+                  
+                  <div className="bg-slate-50 p-6 rounded-lg border-l-4 border-amber-600">
+                    <div className="flex items-start space-x-4">
+                      <Users className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-base font-bold text-slate-800 mb-2">Nationally and Internationally Awarded for Innovation</h3>
+                        <p className="text-slate-700 leading-relaxed">
+                          Recognized for her pioneering work in speech and aviation safety, Dr. Pierson has received numerous awards both nationally and internationally.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Globe className="h-5 w-5 text-amber-600" />
-                    <span className="text-slate-700">Aligned with UN SDG 8: Decent Work and Economic Growth</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Target className="h-5 w-5 text-amber-600" />
-                    <span className="text-slate-700">20+ years in aviation safety research</span>
+                  
+                  <div className="bg-slate-50 p-6 rounded-lg border-l-4 border-amber-600">
+                    <div className="flex items-start space-x-4">
+                      <Globe className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-base font-bold text-slate-800 mb-2">Aligned with the United Nation's SDGs 8 and 10</h3>
+                        <p className="text-slate-700 leading-relaxed">
+                          Dr. Pierson's work promotes decent work, economic growth, and reduced inequalities by empowering non-native English-speaking pilots, contributing to global sustainable development goals.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                
                 <Button className="bg-amber-700 hover:bg-amber-800 text-white">
                   Contact Dr. Pierson <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -59,17 +80,18 @@ export default function AboutPage() {
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-l-amber-600 mb-6">
                   <p className="text-amber-800 font-medium italic text-lg">
-                    &quot;Every clear communication saves lives and reduces costs. Our technology makes this possible at
-                    scale, transforming how aviation professionals interact in critical moments.&quot;
+                    &quot;Understandable speech saves lives and cuts costs. 
+                    Our technology makes this possible at scale, transforming how aviation professionals speak when every word counts.”&quot;
                   </p>
                   <p className="text-amber-700 font-semibold mt-4">- Dr. Pierson, Founder & CEO</p>
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-4">Academic Background</h3>
                 <ul className="space-y-2 text-slate-600">
-                  <li>• Ph.D. in Linguistic Science</li>
-                  <li>• M.S. in Aviation Safety Management</li>
-                  <li>• Published researcher in communication theory</li>
-                  <li>• Former FAA advisory committee member</li>
+                  <li>• Doctor of Clinical Science in Speech-Language Pathology specializing in aviation communication safety</li>
+                  <li>• M.S. in Speech-Language Pathology</li>
+                  <li>• Harvard Women in Leadership Program alumna</li>
+                  <li>• Published researcher in aerospace communication, pilot speech intelligibility, and safety</li>
+                  <li>• Presenter at international and domestic aviation safety and aerospace conferences</li>
                 </ul>
               </div>
             </div>
@@ -94,8 +116,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600">
-                    To create safer skies through revolutionary communication technology that eliminates ambiguity and
-                    enhances clarity in aviation operations worldwide.
+                    Creating safer skies through revolutionary speech modification techniques that enhance clarity in aviation communications.
                   </p>
                 </CardContent>
               </Card>
@@ -108,8 +129,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600">
-                    Safety first, innovation always, and equity in access to life-saving communication technology for
-                    all aviation professionals.
+                    Safety first, innovation always, and equity in access to novel accent modification technology.
                   </p>
                 </CardContent>
               </Card>
@@ -122,8 +142,8 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600">
-                    Contributing to UN Sustainable Development Goal 8 by promoting decent work and economic growth
-                    through safer aviation practices.
+                    Contribute to the United Nation's Sustainable Development Goals by promoting exceptional work and economic growth 
+                    through safer aviation practices and reducing inequalities by empowering diverse voices in aerospace.
                   </p>
                 </CardContent>
               </Card>
