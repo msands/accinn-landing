@@ -4,18 +4,26 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Mic, Brain, Shield, Zap, ArrowRight, CheckCircle } from "lucide-react"
+import Image from "next/image"
 
 export default function HowItWorksPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/how-it-works.jpeg"
+            alt="How our AI technology works"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">Technology</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">How Our AI Revolutionizes Aviation Communication</h1>
-            <p className="text-xl text-slate-600">
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">How Our AI Revolutionizes Aviation Communication</h1>
+            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
               At Accent Innovations, we believe every word in aviation should be understood the first time. Our proprietary methodology transforms accented speech into clear and comprehensible communication, ensuring safety and operational efficiency worldwide.
             </p>
           </div>

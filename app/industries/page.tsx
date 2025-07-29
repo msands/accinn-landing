@@ -3,18 +3,26 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Plane, Rocket, Shield, Truck, Ambulance } from "lucide-react"
+import Image from "next/image"
 
 export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <Navigation />
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/industries.jpeg"
+            alt="Industries we serve"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">Industries We Serve</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">Transforming Communication Across Sectors</h1>
-            <p className="text-xl text-slate-600">
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Transforming Communication Across Sectors</h1>
+            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
               Our training brings clarity, safety, and efficiency to high-stakes industries worldwide.
             </p>
           </div>

@@ -12,11 +12,18 @@ export default function InvestorsPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/investments.jpeg"
+            alt="Investment opportunities"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">Investor Info</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">Invest in the Future of Aviation Communication</h1>
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Invest in the Future of Aviation Communication</h1>
           </div>
         </div>
       </section>

@@ -6,18 +6,26 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
+import Image from "next/image"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/communication.jpeg"
+            alt="Communication and contact"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">Contact Us</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">Ready to Transform Your Aviation Communication?</h1>
-            <p className="text-xl text-slate-600">
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Ready to Transform Your Aviation Communication?</h1>
+            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
               Get in touch with our team to learn how we can enhance safety and efficiency in your operations
             </p>
           </div>
