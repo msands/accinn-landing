@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Mic, Brain, Shield, Zap, ArrowRight, CheckCircle } from "lucide-react"
-import Image from "next/image"
 
 export default function HowItWorksPage() {
   return (

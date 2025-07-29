@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Plane, Rocket, Shield, Truck, Ambulance } from "lucide-react"
-import Image from "next/image"
 
 export default function IndustriesPage() {
   return (

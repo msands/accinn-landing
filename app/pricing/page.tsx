@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { User, Building, GraduationCap, CheckCircle } from "lucide-react"
-import Image from "next/image"
 
 export default function PricingPage() {
   return (

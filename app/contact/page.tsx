@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
-import Image from "next/image"
 
 export default function ContactPage() {
   return (
