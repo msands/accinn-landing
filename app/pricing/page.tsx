@@ -4,17 +4,27 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { User, Building, GraduationCap, CheckCircle } from "lucide-react"
+import Image from "next/image"
 
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <Navigation />
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/pricing.jpg"
+            alt="Pricing plans"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
+          />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">Pricing</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">Flexible Plans for Every Operation</h1>
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Flexible Plans for Every Operation</h1>
           </div>
         </div>
       </section>
@@ -36,9 +46,9 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between w-full items-center">
                 <ul className="mb-4 space-y-2 w-full">
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Full access to all AI features</li>
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Real-time accent neutralization</li>
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> 24/7 priority support</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Full access to all AI features</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Real-time accent neutralization</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> 24/7 priority support</li>
                 </ul>
                 <p className="text-sm text-slate-600 mb-4 text-center">Perfect for pilots, controllers, crew, and professionals who need immediate speech clarity improvements.</p>
                 <div className="mt-auto w-full">
@@ -57,9 +67,9 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between w-full items-center">
                 <ul className="mb-4 space-y-2 w-full">
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Scalable volume licensing</li>
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Seamless API & system integrations</li>
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Dedicated account manager for personalized onboarding and support</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Scalable volume licensing</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Seamless API & system integrations</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Dedicated account manager for personalized onboarding and support</li>
                 </ul>
                 <p className="text-sm text-slate-600 mb-4 text-center">Ideal for airlines, defense contractors, global logistics, and multinational operations seeking large-scale clarity and safety improvements.</p>
                 <div className="mt-auto w-full">
@@ -78,9 +88,9 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between w-full items-center">
                 <ul className="mb-4 space-y-2 w-full">
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Academic and government packages</li>
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Strategic research partnerships</li>
-                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700" /> Priority onboarding and implementation support</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Academic and government packages</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Strategic research partnerships</li>
+                  <li className="flex items-center gap-2 text-slate-700"><CheckCircle className="h-5 w-5 text-amber-700 flex-shrink-0" /> Priority onboarding and implementation support</li>
                 </ul>
                 <p className="text-sm text-slate-600 mb-4 text-center">Designed for universities, aerospace agencies, and public sector institutions focused on research, safety, and operational excellence.</p>
                 <div className="mt-auto w-full">

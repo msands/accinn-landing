@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Plane, Rocket, Shield, Truck, Ambulance } from "lucide-react"
+import Image from "next/image"
 
 export default function IndustriesPage() {
   return (
@@ -12,10 +13,12 @@ export default function IndustriesPage() {
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="/industries.jpeg"
+            src="/industries.jpg"
             alt="Industries we serve"
             className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
           />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
@@ -34,8 +37,8 @@ export default function IndustriesPage() {
             {/* Aviation */}
             <Card className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Plane className="h-7 w-7 text-amber-700" />
+                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center">
+                  <Plane className="h-12 w-12 text-amber-700" />
                 </div>
                 <CardTitle className="text-slate-800">Aviation</CardTitle>
               </CardHeader>
@@ -53,8 +56,8 @@ export default function IndustriesPage() {
             {/* Aerospace */}
             <Card className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Rocket className="h-7 w-7 text-amber-700" />
+                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center">
+                  <Rocket className="h-12 w-12 text-amber-700" />
                 </div>
                 <CardTitle className="text-slate-800">Aerospace</CardTitle>
               </CardHeader>
@@ -71,8 +74,8 @@ export default function IndustriesPage() {
             {/* Joint Forces */}
             <Card className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Shield className="h-7 w-7 text-amber-700" />
+                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center">
+                  <Shield className="h-12 w-12 text-amber-700" />
                 </div>
                 <CardTitle className="text-slate-800">Joint Forces</CardTitle>
               </CardHeader>
@@ -89,8 +92,8 @@ export default function IndustriesPage() {
             {/* Commercial Trucking */}
             <Card className="flex flex-col">
               <CardHeader className="flex flex-row items-center gap-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Truck className="h-7 w-7 text-amber-700" />
+                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center">
+                  <Truck className="h-12 w-12 text-amber-700" />
                 </div>
                 <CardTitle className="text-slate-800">Commercial Trucking</CardTitle>
               </CardHeader>
@@ -107,8 +110,8 @@ export default function IndustriesPage() {
             {/* Healthcare and Emergency Transport */}
             <Card className="flex flex-col md:col-span-2">
               <CardHeader className="flex flex-row items-center gap-4">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                  <Ambulance className="h-7 w-7 text-amber-700" />
+                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center">
+                  <Ambulance className="h-12 w-12 text-amber-700" />
                 </div>
                 <CardTitle className="text-slate-800">Healthcare & Emergency Transport</CardTitle>
               </CardHeader>

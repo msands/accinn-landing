@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 const testimonials = [
   {
@@ -143,12 +144,21 @@ export default function TestimonialsPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/testimonials.jpg"
+            alt="Testimonials from industry leaders"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
+          />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">Testimonials</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">What Industry Leaders Say</h1>
-            <p className="text-xl text-slate-600">
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">What Industry Leaders Say</h1>
+            <p className="text-xl text-gray-100 drop-shadow">
               Real insights from pilots, experts, and aviation organizations worldwide.
             </p>
           </div>

@@ -4,18 +4,28 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Award, Users, Globe, Target, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navigation />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/about.jpg"
+            alt="About Accent Innovations"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
+          />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4">About Accent Innovations</Badge>
-            <h1 className="text-4xl font-bold text-slate-800 mb-6">Pioneering the Future of Aviation Communication</h1>
-            <p className="text-xl text-slate-600">
+            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Pioneering the Future of Aviation Communication</h1>
+            <p className="text-xl text-gray-100 drop-shadow">
               Founded by industry experts, driven by safety, powered by innovation
             </p>
           </div>
@@ -81,9 +91,16 @@ export default function AboutPage() {
                 <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-l-amber-600 mb-6">
                   <p className="text-amber-800 font-medium italic text-lg">
                     &quot;Understandable speech saves lives and cuts costs. 
-                    Our technology makes this possible at scale, transforming how aviation professionals speak when every word counts.”&quot;
+                    Our technology makes this possible at scale, transforming how aviation professionals speak when every word counts.&quot;
                   </p>
                   <p className="text-amber-700 font-semibold mt-4">- Dr. Pierson, Founder & CEO</p>
+                </div>
+                <div className="mb-6">
+                  <img
+                    src="/katie.webp"
+                    alt="Dr. Katie Pierson"
+                    className="w-full h-64 object-contain rounded-lg shadow-md"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-4">Academic Background</h3>
                 <ul className="space-y-2 text-slate-600">

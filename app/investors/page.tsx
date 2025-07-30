@@ -15,10 +15,12 @@ export default function InvestorsPage() {
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="/investments.jpeg"
+            src="/investors.jpg"
             alt="Investment opportunities"
             className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
           />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
@@ -270,41 +272,73 @@ export default function InvestorsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Image src="/TiEOregon.png" alt="TiE Oregon logo" width={96} height={96} className="object-contain max-h-24" />
+                  <div className="w-32 h-32 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/TiEOregon.png" alt="TiE Oregon Angels logo" width={128} height={128} className="object-contain max-h-32" />
                   </div>
-                  <h3 className="font-semibold text-slate-800 mb-2">TiE Oregon</h3>
-                  <p className="text-sm text-slate-600">Fostering Entrepreneurship</p>
+                  <h3 className="font-semibold text-slate-800 mb-2">
+                    <a 
+                      href="https://www.tieoregon.org/programs/oregon-tie-angels" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-slate-800 hover:text-amber-700 transition-colors"
+                    >
+                      TiE Oregon Angels
+                    </a>
+                  </h3>
                 </CardContent>
               </Card>
 
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Image src="/GBA.png" alt="Great Basin Aviation logo" width={96} height={96} className="object-contain max-h-24" />
+                  <div className="w-32 h-32 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/GBA.png" alt="Great Basin Aviation logo" width={128} height={128} className="object-contain max-h-32" />
                   </div>
-                  <h3 className="font-semibold text-slate-800 mb-2">Great Basin Aviation</h3>
-                  <p className="text-sm text-slate-600">Nevada</p>
+                  <h3 className="font-semibold text-slate-800 mb-2">
+                    <a 
+                      href="https://www.greatbasinaviation.com/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-slate-800 hover:text-amber-700 transition-colors"
+                    >
+                      Great Basin Aviation
+                    </a>
+                  </h3>
                 </CardContent>
               </Card>
 
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Image src="/WAI.png" alt="Women in Aviation International logo" width={96} height={96} className="object-contain max-h-24" />
+                  <div className="w-32 h-32 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/WAI.png" alt="Women in Aviation International logo" width={128} height={128} className="object-contain max-h-32" />
                   </div>
-                  <h3 className="font-semibold text-slate-800 mb-2">Women in Aviation</h3>
-                  <p className="text-sm text-slate-600">International</p>
+                  <h3 className="font-semibold text-slate-800 mb-2">
+                    <a 
+                      href="https://www.wai.org/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-slate-800 hover:text-amber-700 transition-colors"
+                    >
+                      Women in Aviation International
+                    </a>
+                  </h3>
                 </CardContent>
               </Card>
 
               <Card className="text-center">
                 <CardContent className="p-8">
-                  <div className="w-24 h-24 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Image src="/WAN.png" alt="Women&apos;s Aerospace Network logo" width={96} height={96} className="object-contain max-h-24" />
+                  <div className="w-32 h-32 bg-slate-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Image src="/WAN.png" alt="Women&apos;s Aerospace Network logo" width={128} height={128} className="object-contain max-h-32" />
                   </div>
-                  <h3 className="font-semibold text-slate-800 mb-2">Women&apos;s Aerospace</h3>
-                  <p className="text-sm text-slate-600">Network</p>
+                  <h3 className="font-semibold text-slate-800 mb-2">
+                    <a 
+                      href="https://www.womensaerospace.com/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-slate-800 hover:text-amber-700 transition-colors"
+                    >
+                      Women&apos;s Aerospace Network
+                    </a>
+                  </h3>
                 </CardContent>
               </Card>
             </div>

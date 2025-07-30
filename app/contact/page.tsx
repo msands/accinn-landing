@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
+import Image from "next/image"
 
 export default function ContactPage() {
   return (
@@ -15,10 +16,12 @@ export default function ContactPage() {
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="/communication.jpeg"
+            src="/contact.jpg"
             alt="Communication and contact"
             className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
           />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">

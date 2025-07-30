@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Mic, Brain, Shield, Zap, ArrowRight, CheckCircle } from "lucide-react"
+import Image from "next/image"
 
 export default function HowItWorksPage() {
   return (
@@ -13,10 +14,12 @@ export default function HowItWorksPage() {
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="/how-it-works.jpeg"
+            src="/how-it-works.jpg"
             alt="How our AI technology works"
             className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
           />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
@@ -97,7 +100,7 @@ export default function HowItWorksPage() {
             </div>
             <br></br>
             <div className="text-center mb-12">
-              <p className="text-lg text-slate-600">This app aims to help users improve their intelligibility engaging and gamified interactive practice.</p>
+              <p className="text-lg text-slate-600">This product helps users improve intelligibility through engaging and gamified interactive practice.</p>
             </div>
           </div>
         </div>
@@ -110,7 +113,7 @@ export default function HowItWorksPage() {
             <div className="mb-10 text-center">
               <h2 className="text-3xl font-bold text-slate-800 mb-6">Our Proprietary Technology</h2>
               <p className="text-lg text-slate-600">
-                Built from years of research in aviation speech patterns and communication safety, our AI combines:
+                Clear communication, backed by years of aviation speech research.
               </p>
             </div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -234,7 +237,7 @@ export default function HowItWorksPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600 mb-4">
-                    Pilots and air traffic controllers use the app in training and live operations to neutralize heavy accents in real time, ensuring clear communication to avoid misunderstandings that could risk lives and operational safety.
+                    Pilots and air traffic controllers use the app to learn how to neutralize heavy accents in real time, ensuring clear communication to avoid misunderstandings that could risk lives and operational safety.
                   </p>
                 </CardContent>
               </Card>
@@ -267,7 +270,7 @@ export default function HowItWorksPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600 mb-4">
-                    Aviation schools and airlines use the app as part of recurrency training for pilots and controllers to maintain ICAO English proficiency levels and continuously refine speech clarity despite regional accent influences. Speech clarity is “use it or lose it”.Military aviation units deploy the app during multinational joint exercises to standardize English communication across diverse accents, enhancing mission coordination and reducing misinterpretation during critical maneuvers.
+                    Academies and airlines use the app as part of recurrency training for pilots and controllers to maintain ICAO English LPRs and continuously refine speech clarity despite regional accent influences. Speech clarity is “use it or lose it”. Military aviation units deploy the app during multinational joint exercises to standardize verbal communication across diverse accents, enhancing mission coordination and reducing misinterpretation during critical maneuvers.
                   </p>
                 </CardContent>
               </Card>
@@ -278,7 +281,7 @@ export default function HowItWorksPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600 mb-4">
-                    Airport ground operations and aircraft maintenance teams use the app to reduce miscommunication between multinational staff when performing time-critical tasks like fueling, towing, and mechanical repairs. By improving intelligibility in real time, teams ensure instructions are clearly understood the first time, minimizing delays, safety risks, and costly operational errors.
+                    Airport ground operations and aircraft maintenance teams use the app to reduce miscommunication between multinational staff when performing time-critical tasks like fueling, towing, and mechanical repairs. Teams ensure instructions are clearly understood the first time, minimizing delays, safety risks, and costly operational errors.
                   </p>
                 </CardContent>
               </Card>
