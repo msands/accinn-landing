@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Mic, Brain, Shield, Zap, ArrowRight, CheckCircle } from "lucide-react"
-import Image from "next/image"
 
 export default function HowItWorksPage() {
   return (
@@ -13,6 +12,7 @@ export default function HowItWorksPage() {
 
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/how-it-works.jpg"
             alt="How our AI technology works"

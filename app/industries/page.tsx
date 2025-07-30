@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Plane, Rocket, Shield, Truck, Ambulance } from "lucide-react"
-import Image from "next/image"
 
 export default function IndustriesPage() {
   return (
@@ -12,6 +11,7 @@ export default function IndustriesPage() {
       {/* Hero Section */}
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/industries.jpg"
             alt="Industries we serve"

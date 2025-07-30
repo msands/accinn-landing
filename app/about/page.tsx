@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Award, Users, Globe, Target, ArrowRight } from "lucide-react"
-import Image from "next/image"
 
 export default function AboutPage() {
   return (
@@ -13,6 +12,7 @@ export default function AboutPage() {
 
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/about.jpg"
             alt="About Accent Innovations"
@@ -96,6 +96,7 @@ export default function AboutPage() {
                   <p className="text-amber-700 font-semibold mt-4">- Dr. Pierson, Founder & CEO</p>
                 </div>
                 <div className="mb-6">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/katie.webp"
                     alt="Dr. Katie Pierson"

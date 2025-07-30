@@ -14,6 +14,7 @@ export default function InvestorsPage() {
       {/* Hero Section */}
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/investors.jpg"
             alt="Investment opportunities"

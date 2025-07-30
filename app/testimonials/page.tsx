@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { useState, useEffect } from "react"
-import Image from "next/image"
 
 const testimonials = [
   {
@@ -146,6 +145,7 @@ export default function TestimonialsPage() {
       {/* Hero Section */}
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/testimonials.jpg"
             alt="Testimonials from industry leaders"
