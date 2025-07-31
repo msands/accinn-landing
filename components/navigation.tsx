@@ -10,7 +10,7 @@ export function Navigation() {
   const [showWaitlist, setShowWaitlist] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm border-b sticky top-0 z-50">
+    <header className="bg-gray-700 shadow-sm border-b border-gray-600 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
@@ -20,33 +20,33 @@ export function Navigation() {
               alt="Accent Innovations Logo"
               className="w-8 h-8 rounded-lg object-cover"
             />
-            <span className="text-xl font-bold text-slate-800">Accent Innovations</span>
+            <span className="text-xl font-bold text-white">Accent Innovations</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/how-it-works" className="text-slate-600 hover:text-amber-700 font-medium">
+            <Link href="/how-it-works" className="text-gray-300 hover:text-amber-700 font-medium">
               How It Works
             </Link>
-            <Link href="/industries" className="text-slate-600 hover:text-amber-700 font-medium">
+            <Link href="/industries" className="text-gray-300 hover:text-amber-700 font-medium">
               Industries
             </Link>
-            <Link href="/pricing" className="text-slate-600 hover:text-amber-700 font-medium">
+            <Link href="/pricing" className="text-gray-300 hover:text-amber-700 font-medium">
               Pricing
             </Link>
-            <Link href="/about" className="text-slate-600 hover:text-amber-700 font-medium">
+            <Link href="/about" className="text-gray-300 hover:text-amber-700 font-medium">
               About
             </Link>
-            <Link href="/contact" className="text-slate-600 hover:text-amber-700 font-medium">
+            <Link href="/contact" className="text-gray-300 hover:text-amber-700 font-medium">
               Contact
             </Link>
-            <Link href="/investors" className="text-slate-600 hover:text-amber-700 font-medium">
+            <Link href="/investors" className="text-gray-300 hover:text-amber-700 font-medium">
               Investor Info
             </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button className="bg-tan text-white hover:bg-tan-dark" onClick={() => setShowWaitlist(true)}>
+            <Button className="bg-amber-700 hover:bg-amber-800 text-white" onClick={() => setShowWaitlist(true)}>
               Join Waitlist
             </Button>
 
@@ -105,24 +105,24 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t pt-4">
+          <nav className="md:hidden mt-4 pb-4 border-t border-gray-600 pt-4">
             <div className="flex flex-col space-y-4">
-              <Link href="/how-it-works" className="text-slate-600 hover:text-amber-700 font-medium">
+              <Link href="/how-it-works" className="text-gray-300 hover:text-amber-700 font-medium">
                 How It Works
               </Link>
-              <Link href="/industries" className="text-slate-600 hover:text-amber-700 font-medium">
+              <Link href="/industries" className="text-gray-300 hover:text-amber-700 font-medium">
                 Industries
               </Link>
-              <Link href="/pricing" className="text-slate-600 hover:text-amber-700 font-medium">
+              <Link href="/pricing" className="text-gray-300 hover:text-amber-700 font-medium">
                 Pricing
               </Link>
-              <Link href="/about" className="text-slate-600 hover:text-amber-700 font-medium">
+              <Link href="/about" className="text-gray-300 hover:text-amber-700 font-medium">
                 About
               </Link>
-              <Link href="/contact" className="text-slate-600 hover:text-amber-700 font-medium">
+              <Link href="/contact" className="text-gray-300 hover:text-amber-700 font-medium">
                 Contact
               </Link>
-              <Link href="/investors" className="text-slate-600 hover:text-amber-700 font-medium">
+              <Link href="/investors" className="text-gray-300 hover:text-amber-700 font-medium">
                 Investor Info
               </Link>
             </div>

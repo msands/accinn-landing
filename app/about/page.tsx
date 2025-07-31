@@ -7,7 +7,7 @@ import { Award, Users, Globe, Target, ArrowRight } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
@@ -33,20 +33,20 @@ export default function AboutPage() {
       </section>
 
       {/* Founder Section */}
-      <section className="py-16 bg-slate-100">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-800 mb-6 text-center">Meet Dr. Katie Pierson: Aviation Safety and Speech Innovation Leader</h2>
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">Meet Dr. Katie Pierson: Aviation Safety and Speech Innovation Leader</h2>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                   Dr. Katie Pierson is an award-winning speech-language pathologist and researcher dedicated to enhancing communication safety in aviation.
                   As the founder of Accent Innovations, Dr. Pierson has pioneered the first patent-pending accent modification protocol for pilots, significantly improving intelligibility and preventing miscommunication-related accidents. 
                   Her groundbreaking work has not only advanced the field of speech therapy but also made a substantial impact on aviation safety, earning her recognition as an Aerospace Pioneer by the Women&apos;s Aerospace Network.
                 </p>
                 
                 <div className="space-y-6 mb-8">
-                  <div className="bg-slate-50 p-6 rounded-lg border-l-4 border-amber-600">
+                  <div className="bg-white p-6 rounded-lg border-l-4 border-amber-600">
                     <div className="flex items-start space-x-4">
                       <Award className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
                       <div>
@@ -58,7 +58,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   
-                  <div className="bg-slate-50 p-6 rounded-lg border-l-4 border-amber-600">
+                  <div className="bg-white p-6 rounded-lg border-l-4 border-amber-600">
                     <div className="flex items-start space-x-4">
                       <Users className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
                       <div>
@@ -70,7 +70,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   
-                  <div className="bg-slate-50 p-6 rounded-lg border-l-4 border-amber-600">
+                  <div className="bg-white p-6 rounded-lg border-l-4 border-amber-600">
                     <div className="flex items-start space-x-4">
                       <Globe className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
                       <div>
@@ -118,11 +118,11 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Mission & Values</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Our Mission & Values</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="text-center">

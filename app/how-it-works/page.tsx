@@ -7,7 +7,7 @@ import { Mic, Brain, Shield, Zap, ArrowRight, CheckCircle } from "lucide-react"
 
 export default function HowItWorksPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
@@ -33,11 +33,11 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Process Overview */}
-      <section className="py-16 bg-slate-100">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Process</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Our Process</h2>
               <p className="text-lg text-slate-600">From “Say Again” to “Roger”</p>
             </div>
             
@@ -222,12 +222,12 @@ export default function HowItWorksPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="py-16 bg-slate-100">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Real-World Applications</h2>
-              <p className="text-lg text-slate-600">Transforming communication across speech critical sectors, with a special focus on enhancing pilot communications:</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Real-World Applications</h2>
+              <p className="text-lg text-gray-200">Transforming communication across speech critical sectors, with a special focus on enhancing pilot communications:</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
