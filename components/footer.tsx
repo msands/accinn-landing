@@ -3,15 +3,18 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-12">
+    <footer className="bg-gray-700 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-amber-600 to-amber-800 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">AI</span>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.jpg"
+                  alt="Accent Innovations Logo"
+                  className="w-8 h-8 rounded-lg object-cover"
+                />
                 <span className="text-xl font-bold">Accent Innovations</span>
               </div>
               <p className="text-slate-400 mb-4">

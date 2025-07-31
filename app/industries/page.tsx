@@ -6,7 +6,7 @@ import { Plane, Rocket, Shield, Truck, Ambulance } from "lucide-react"
 
 export default function IndustriesPage() {
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-dark-bg flex flex-col">
       <Navigation />
       {/* Hero Section */}
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
@@ -31,7 +31,7 @@ export default function IndustriesPage() {
         </div>
       </section>
       {/* Industry Cards */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Aviation */}
