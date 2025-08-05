@@ -10,20 +10,20 @@ export default function HowItWorksPage() {
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/how-it-works.jpg"
             alt="How our AI technology works"
             className="w-full h-full object-cover object-center"
-            style={{ filter: 'brightness(0.55)' }}
+            style={{ filter: 'brightness(0.25)' }}
           />
-          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-85" />
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
-            <Badge className="bg-amber-700 text-white mb-4">Technology</Badge>
+            <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">Technology</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">How Our AI Revolutionizes Aviation Communication</h1>
             <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
               At Accent Innovations, we believe every word in aviation should be understood the first time. Our proprietary methodology transforms accented speech into clear and comprehensible communication, ensuring safety and operational efficiency worldwide.

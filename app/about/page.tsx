@@ -10,7 +10,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -23,7 +23,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 w-full">
           <div className="container mx-auto px-4">
-            <Badge className="bg-amber-700 text-white mb-4">About Accent Innovations</Badge>
+            <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">About Accent Innovations</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Pioneering the Future of Aviation Communication</h1>
             <p className="text-xl text-gray-100 drop-shadow">
               Founded by industry experts, driven by safety, powered by innovation

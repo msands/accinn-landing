@@ -37,7 +37,7 @@ export default function Home() {
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
       {/* Hero Section with Background Image */}
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
