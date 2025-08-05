@@ -8,7 +8,7 @@ import Image from "next/image"
 
 export default function InvestorsPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
       
       {/* Hero Section */}
@@ -32,11 +32,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Why Now */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-gray-700">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Why Now</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Why Now</h2>
             </div>
             <Card>
               <CardContent className="p-8">
@@ -50,11 +50,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Why This Problem Is Getting Worse */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Why This Problem Is Getting Worse</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Why This Problem Is Getting Worse</h2>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -119,11 +119,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Our Market Opportunity */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-gray-700">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Market Opportunity</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Our Market Opportunity</h2>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -199,11 +199,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Our Traction */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Traction</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Our Traction</h2>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -262,11 +262,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Industry Partners & Support */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-gray-700">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Industry Partners & Support</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Industry Partners & Support</h2>
               <p className="text-lg text-slate-600">Leading organizations supporting our mission</p>
             </div>
             
@@ -348,11 +348,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Our Unique Advantages */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Our Unique Advantages</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Our Unique Advantages</h2>
             </div>
             
             <Card>
@@ -378,11 +378,11 @@ export default function InvestorsPage() {
       </section>
 
       {/* Industry Letters of Support */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-700">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4">Industry Letters of Support</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Industry Letters of Support</h2>
             </div>
             
             <Card className="text-center">

@@ -9,7 +9,7 @@ import { Mail, Phone, MapPin, Calendar } from "lucide-react"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
@@ -34,20 +34,20 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-100">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-2xl font-bold text-slate-800 mb-8">Get In Touch</h2>
+                <h2 className="text-2xl font-bold text-white mb-8">Get In Touch</h2>
                 <div className="space-y-6 mb-8">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
                       <Mail className="h-6 w-6 text-amber-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800">Email</h3>
-                      <p className="text-slate-600">katie.pierson@accent-innovations.com</p>
+                      <h3 className="font-semibold text-white">Email</h3>
+                      <p className="text-gray-300">katie.pierson@accent-innovations.com</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -55,8 +55,8 @@ export default function ContactPage() {
                       <Phone className="h-6 w-6 text-amber-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800">Phone</h3>
-                      <p className="text-slate-600">+1 (503) 327-9366</p>
+                      <h3 className="font-semibold text-white">Phone</h3>
+                      <p className="text-gray-300">+1 (503) 327-9366</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -64,8 +64,8 @@ export default function ContactPage() {
                       <MapPin className="h-6 w-6 text-amber-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800">Location</h3>
-                      <p className="text-slate-600">1975 NW 167th Pl #100, Beaverton, OR 97006</p>
+                      <h3 className="font-semibold text-white">Location</h3>
+                      <p className="text-gray-300">1975 NW 167th Pl #100, Beaverton, OR 97006</p>
                     </div>
                   </div>
                 </div>

@@ -34,7 +34,7 @@ export default function Home() {
   const goToQuote = (idx: number) => setCarouselIndex(idx)
 
   return (
-    <div className="min-h-screen bg-bluegray">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
       {/* Hero Section with Background Image */}
       <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
@@ -73,9 +73,9 @@ export default function Home() {
               >
                 ×
               </button>
-              <h2 className="text-2xl font-bold mb-4 text-bluegray">Join the Waitlist</h2>
+              <h2 className="text-2xl font-bold mb-4 text-slate-800">Join the Waitlist</h2>
               {submitted ? (
-                <div className="text-bluegray text-lg font-semibold py-8">Thank you for joining the waitlist!</div>
+                <div className="text-slate-800 text-lg font-semibold py-8">Thank you for joining the waitlist!</div>
               ) : (
                 <form
                   action="https://docs.google.com/forms/d/e/1FAIpQLSfpuQlhbEW5_072bw_Mr7KR0_NfPBuu8mXm9zl9_mWfsH0j_Q/formResponse"
@@ -85,7 +85,7 @@ export default function Home() {
                   onSubmit={() => setSubmitted(true)}
                 >
                   <div>
-                    <label className="block text-sm font-medium text-bluegray mb-1">Name</label>
+                    <label className="block text-sm font-medium text-slate-800 mb-1">Name</label>
                     <input
                       name="entry.2005620554"
                       type="text"
@@ -95,7 +95,7 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-bluegray mb-1">Email</label>
+                    <label className="block text-sm font-medium text-slate-800 mb-1">Email</label>
                     <input
                       name="entry.1045781291"
                       type="email"
@@ -115,15 +115,15 @@ export default function Home() {
       </section>
 
       {/* Problem & Solution Overview */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Problem & Solution</Badge>
-              <h2 className="text-3xl font-bold text-bluegray mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4">
                 The Critical Problem: Communication Failures Cost Lives and Money
               </h2>
-              <p className="text-lg text-gray-800 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-200 max-w-3xl mx-auto">
                 In aviation, miscommunication leads to safety incidents, operational delays, and significant financial
                 losses. Our AI-powered solution addresses this critical challenge.
               </p>
@@ -132,10 +132,10 @@ export default function Home() {
               <Card className="border-l-4 border-l-red-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <Shield className="h-16 w-16 text-red-500 mb-4" />
-                  <CardTitle className="text-bluegray">Safety Risks</CardTitle>
+                  <CardTitle className="text-slate-800">Safety Risks</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-800 mb-4">
+                  <p className="text-slate-600 mb-4">
                     Miscommunication errors are linked to nearly 80% of aviation accidents worldwide, costing the industry billions and endangering lives every day. With global pilot diversity at an all-time high, accented speech has become a leading cause of these miscommunications.
                   </p>
                   <p className="text-sm text-red-600 font-medium">Critical Issue</p>
@@ -144,7 +144,7 @@ export default function Home() {
               <Card className="border-l-4 border-l-gold hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <TrendingUp className="h-16 w-16 text-gold mb-4" />
-                  <CardTitle className="text-bluegray">Operational Costs</CardTitle>
+                  <CardTitle className="text-slate-800">Operational Costs</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 mb-4">
@@ -156,7 +156,7 @@ export default function Home() {
               <Card className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <Target className="h-16 w-16 text-green-500 mb-4" />
-                  <CardTitle className="text-bluegray">Our Solution</CardTitle>
+                  <CardTitle className="text-slate-800">Our Solution</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800 mb-4">
@@ -176,7 +176,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Key Benefits</Badge>
-              <h2 className="text-3xl font-bold text-bluegray mb-4">Why Aviation Professionals Choose Us</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Why Aviation Professionals Choose Us</h2>
               <p className="text-lg text-gray-800">Our technology is grounded in rigorous aviation and speech science research, delivering rapid impact with immediate, measurable improvements in pilot’s verbal clarity.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -187,8 +187,8 @@ export default function Home() {
                       <Award className="h-8 w-8 text-gold" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-bluegray mb-2">Patent-Pending Intellectual Property</h3>
-                      <p className="text-gray-800">
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Patent-Pending Intellectual Property</h3>
+                      <p className="text-slate-600">
                         Featuring a unique AI-driven methodology combined with speech science, Accent Innovations holds exclusive IP with no direct competitors offering comparable solutions.
                       </p>
                     </div>
@@ -198,8 +198,8 @@ export default function Home() {
                       <Users className="h-8 w-8 text-gold" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-bluegray mb-2">Industry Expertise</h3>
-                      <p className="text-gray-800">
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Industry Expertise</h3>
+                      <p className="text-slate-600">
                         Founded by Dr. Katie Pierson, an award-winning accent modification researcher and recognized expert in accented pilot communications.
                       </p>
                     </div>
@@ -209,17 +209,17 @@ export default function Home() {
                       <CheckCircle className="h-8 w-8 text-gold" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-bluegray mb-2">Immediate Results</h3>
-                      <p className="text-gray-800">
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Immediate Results</h3>
+                      <p className="text-slate-600">
                         Pilots and operators see communication improvements from day one of implementation.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-100 p-8 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-bold text-bluegray mb-6">Ready to See How It Works?</h3>
-                <p className="text-gray-800 mb-6">
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Ready to See How It Works?</h3>
+                <p className="text-slate-600 mb-6">
                   Discover our 4-step process that transforms unintelligible aviation communications.
                 </p>
                 <Link href="/how-it-works">
@@ -239,12 +239,12 @@ export default function Home() {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Social Proof</Badge>
-              <h2 className="text-3xl font-bold text-bluegray mb-4">Trusted by Aviation Professionals</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Trusted by Aviation Professionals</h2>
             </div>
             {/* Replace testimonial card with pilots.jpg image */}
             <div className="flex justify-center mb-12">
@@ -359,11 +359,21 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-tan to-gold text-bluegray">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 text-white">
+        <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/runway.avif"
+            alt="Runway background"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
+          />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Aviation Communication?</h2>
-            <p className="text-xl text-bluegray mb-8">
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Transform Aviation Communication?</h2>
+            <p className="text-xl text-gray-100 mb-8">
               Join leading pilots, airlines, and training organizations to achieve safer operations via understandable speech.
             </p>
             {/* <Button size="lg" className="bg-tan text-white hover:bg-tan-dark px-8 py-4 text-lg" asChild>

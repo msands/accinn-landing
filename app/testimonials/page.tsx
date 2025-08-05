@@ -139,7 +139,7 @@ export default function TestimonialsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-dark-bg">
       <Navigation />
       
       {/* Hero Section */}
@@ -166,7 +166,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Featured Quote Section */}
-      <section className="py-16 bg-amber-50">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Card className="border-amber-200 bg-white">
@@ -205,7 +205,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials Carousel */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-gray-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="relative">
