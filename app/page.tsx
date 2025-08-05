@@ -359,11 +359,21 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-tan to-gold text-bluegray">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 text-white">
+        <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/runway.avif"
+            alt="Runway background"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
+          />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Aviation Communication?</h2>
-            <p className="text-xl text-bluegray mb-8">
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Transform Aviation Communication?</h2>
+            <p className="text-xl text-gray-100 mb-8">
               Join leading pilots, airlines, and training organizations to achieve safer operations via understandable speech.
             </p>
             {/* <Button size="lg" className="bg-tan text-white hover:bg-tan-dark px-8 py-4 text-lg" asChild>
