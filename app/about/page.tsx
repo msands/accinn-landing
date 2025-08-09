@@ -107,7 +107,7 @@ export default function AboutPage() {
                 <ul className="space-y-2 text-slate-600">
                   <li>• Doctor of Clinical Science in Speech-Language Pathology specializing in aviation communication safety</li>
                   <li>• M.S. in Speech-Language Pathology</li>
-                  <li>• Harvard Women in Leadership Program alumna</li>
+                  <li>• Harvard University Women in Leadership alumna</li>
                   <li>• Published researcher in aerospace communication, pilot speech intelligibility, and safety</li>
                   <li>• Presenter at international and domestic aviation safety and aerospace conferences</li>
                 </ul>

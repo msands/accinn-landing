@@ -25,6 +25,9 @@ export default function PricingPage() {
           <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">Pricing</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Flexible Plans for Every Operation</h1>
+            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
+              Choose the perfect plan for your aviation communication needs
+            </p>
           </div>
         </div>
       </section>
@@ -41,7 +44,7 @@ export default function PricingPage() {
                 <CardTitle className="text-slate-800">Individual</CardTitle>
                 <p className="text-2xl font-bold text-amber-700 mt-2">3-month protocol tailored to you</p>
                 <div className="flex justify-center mt-1 mb-2">
-                  <span className="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-0.5 rounded-full whitespace-nowrap">3-month protocol</span>
+                  <span className="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-0.5 rounded-full">3-month protocol</span>
                 </div>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between w-full items-center">

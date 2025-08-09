@@ -243,7 +243,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Social Proof</Badge>
+              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Industry Validation</Badge>
               <h2 className="text-3xl font-bold text-white mb-4">Trusted by Aviation Professionals</h2>
             </div>
             {/* Replace testimonial card with pilots.jpg image */}
@@ -298,7 +298,7 @@ export default function Home() {
             <div className="text-center mt-8">
               <Link href="/testimonials">
                 <Button className="bg-amber-700 text-white hover:bg-amber-800">
-                  Read More Testimonials <ArrowRight className="ml-2 h-4 w-4" />
+                  Read More Industry Validation <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
