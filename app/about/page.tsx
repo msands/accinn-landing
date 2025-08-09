@@ -10,7 +10,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-start justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -21,9 +21,9 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full pt-8">
           <div className="container mx-auto px-4">
-            <Badge className="bg-amber-700 text-white mb-4">About Accent Innovations</Badge>
+            <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">About Accent Innovations</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Pioneering the Future of Aviation Communication</h1>
             <p className="text-xl text-gray-100 drop-shadow">
               Founded by industry experts, driven by safety, powered by innovation
@@ -107,7 +107,7 @@ export default function AboutPage() {
                 <ul className="space-y-2 text-slate-600">
                   <li>• Doctor of Clinical Science in Speech-Language Pathology specializing in aviation communication safety</li>
                   <li>• M.S. in Speech-Language Pathology</li>
-                  <li>• Harvard Women in Leadership Program alumna</li>
+                  <li>• Harvard University Women in Leadership alumna</li>
                   <li>• Published researcher in aerospace communication, pilot speech intelligibility, and safety</li>
                   <li>• Presenter at international and domestic aviation safety and aerospace conferences</li>
                 </ul>

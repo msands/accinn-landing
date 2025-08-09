@@ -58,11 +58,6 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/testimonials" className="hover:text-white">
-                    Testimonials
-                  </Link>
-                </li>
-                <li>
                   <Link href="/investors" className="hover:text-white">
                     Investors
                   </Link>
@@ -75,11 +70,6 @@ export function Footer() {
                 <li>
                   <Link href="/contact" className="hover:text-white">
                     Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Help Center
                   </Link>
                 </li>
                 <li>

@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { TrendingUp, Shield, Users, DollarSign, Award, AlertTriangle, Globe, Clock, CheckCircle, FileText } from "lucide-react"
 import Image from "next/image"
@@ -12,7 +11,7 @@ export default function InvestorsPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-start justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -23,9 +22,9 @@ export default function InvestorsPage() {
           />
           <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full pt-8">
           <div className="container mx-auto px-4">
-            <Badge className="bg-amber-700 text-white mb-4">Investor Info</Badge>
+            <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">Investor Info</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Invest in the Future of Aviation Communication</h1>
           </div>
         </div>
@@ -148,8 +147,8 @@ export default function InvestorsPage() {
                   <CardTitle className="text-slate-800">Market Size</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-2xl font-bold text-amber-700 mb-2">350,000+</p>
-                  <p className="text-slate-600">active pilots worldwide, plus controllers and ground crew</p>
+                  <p className="text-2xl font-bold text-amber-700 mb-2">750,000+</p>
+                  <p className="text-slate-600">pilots, air traffic controllers, flight crew and other aviation professionals worldwide</p>
                 </CardContent>
               </Card>
             </div>
@@ -378,11 +377,21 @@ export default function InvestorsPage() {
       </section>
 
       {/* Industry Letters of Support */}
-      <section className="py-16 bg-gray-700">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 text-white">
+        <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/runway.avif"
+            alt="Runway background"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: 'brightness(0.55)' }}
+          />
+          <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">Industry Letters of Support</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">We are currently in discussions with strategic partners and early-stage investors</h2>
             </div>
             
             <Card className="text-center">
@@ -390,24 +399,12 @@ export default function InvestorsPage() {
                 <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FileText className="h-8 w-8 text-amber-700" />
                 </div>
-                <CardTitle className="text-slate-800">Read our Industry Letters of Support</CardTitle>
+                <CardTitle className="text-slate-800">Interested in learning more?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-600 mb-6">
-                  Download our comprehensive investor materials for detailed financial projections, market analysis, and strategic roadmap.
+                  <a href="/contact" className="text-amber-700 hover:text-amber-800">Contact us here</a> to request our investor materials or schedule a meeting.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button className="bg-amber-700 hover:bg-amber-800 text-white font-bold" asChild>
-                    <a href="/pitch-deck.pdf" target="_blank" rel="noopener noreferrer">
-                      Download Pitch Deck
-                    </a>
-                  </Button>
-                  <Button variant="outline" className="border-amber-700 text-amber-700 hover:bg-amber-50" asChild>
-                    <a href="mailto:investors@accentinnovations.com">
-                      Contact Investment Team
-                    </a>
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           </div>
