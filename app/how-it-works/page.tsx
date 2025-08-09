@@ -10,7 +10,7 @@ export default function HowItWorksPage() {
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
 
-      <section className="relative py-16 min-h-[350px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-start justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -21,7 +21,7 @@ export default function HowItWorksPage() {
           />
           <div className="absolute inset-0 bg-bluegray bg-opacity-85" />
         </div>
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full pt-8">
           <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">Technology</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">How Our AI Revolutionizes Aviation Communication</h1>

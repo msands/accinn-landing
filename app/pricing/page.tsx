@@ -10,7 +10,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-dark-bg flex flex-col">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative py-16 min-h-[350px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-start justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -21,7 +21,7 @@ export default function PricingPage() {
           />
           <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full pt-8">
           <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">Pricing</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Flexible Plans for Every Operation</h1>
@@ -42,10 +42,7 @@ export default function PricingPage() {
                   <User className="h-7 w-7 text-amber-700" />
                 </div>
                 <CardTitle className="text-slate-800">Individual</CardTitle>
-                <p className="text-2xl font-bold text-amber-700 mt-2">3-month protocol tailored to you</p>
-                <div className="flex justify-center mt-1 mb-2">
-                  <span className="bg-slate-100 text-slate-600 text-xs font-semibold px-3 py-0.5 rounded-full">3-month protocol</span>
-                </div>
+                <p className="text-lg font-bold text-amber-700 mt-2 text-center leading-tight">3-month protocol tailored to you</p>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col justify-between w-full items-center">
                 <ul className="mb-4 space-y-2 w-full">
