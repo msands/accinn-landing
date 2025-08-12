@@ -9,7 +9,7 @@ export default function IndustriesPage() {
     <div className="min-h-screen bg-dark-bg flex flex-col">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-start justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -20,9 +20,9 @@ export default function IndustriesPage() {
           />
           <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full pt-8">
           <div className="container mx-auto px-4">
-            <Badge className="bg-amber-700 text-white mb-4">Industries We Serve</Badge>
+            <Badge className="bg-amber-700 text-white mb-4 px-5 py-2 text-base font-semibold">Industries We Serve</Badge>
             <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-lg">Transforming Communication Across Sectors</h1>
             <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto drop-shadow">
               Our training brings clarity, safety, and efficiency to high-stakes industries worldwide.

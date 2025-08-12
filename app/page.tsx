@@ -37,7 +37,7 @@ export default function Home() {
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
       {/* Hero Section with Background Image */}
-      <section className="relative py-20 min-h-[450px] flex items-center justify-center text-center">
+      <section className="relative py-16 min-h-[350px] flex items-start justify-center text-center">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -48,7 +48,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-bluegray bg-opacity-60" />
         </div>
-        <div className="relative z-10 w-full">
+        <div className="relative z-10 w-full pt-8">
           <div className="container mx-auto px-4">
             <Badge className="bg-amber-700 text-white mb-6 px-4 py-2 font-semibold tracking-wide">Patent-Pending Technology</Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
@@ -243,7 +243,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Social Proof</Badge>
+              <Badge className="bg-amber-700 text-white mb-4 px-4 py-2 font-semibold tracking-wide">Industry Validation</Badge>
               <h2 className="text-3xl font-bold text-white mb-4">Trusted by Aviation Professionals</h2>
             </div>
             {/* Replace testimonial card with pilots.jpg image */}
@@ -298,7 +298,7 @@ export default function Home() {
             <div className="text-center mt-8">
               <Link href="/testimonials">
                 <Button className="bg-amber-700 text-white hover:bg-amber-800">
-                  Read More Testimonials <ArrowRight className="ml-2 h-4 w-4" />
+                  Read More Industry Validation <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
