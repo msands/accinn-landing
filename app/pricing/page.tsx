@@ -134,7 +134,7 @@ export default function PricingPage() {
             </button>
             <h2 className="text-2xl font-bold mb-4 text-slate-800">Enterprise Inquiry</h2>
             {submitted ? (
-              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your inquiry! We'll be in touch soon.</div>
+              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your inquiry! We&apos;ll be in touch soon.</div>
             ) : (
               <form className="space-y-4" onSubmit={async (e) => {
                 e.preventDefault()
@@ -222,7 +222,7 @@ export default function PricingPage() {
             </button>
             <h2 className="text-2xl font-bold mb-4 text-slate-800">Institutional Inquiry</h2>
             {submitted ? (
-              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your inquiry! We'll be in touch soon.</div>
+              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your inquiry! We&apos;ll be in touch soon.</div>
             ) : (
               <form className="space-y-4" onSubmit={async (e) => {
                 e.preventDefault()
@@ -253,7 +253,7 @@ export default function PricingPage() {
                     const errorData = await response.json()
                     setError(errorData.error || 'Failed to send inquiry')
                   }
-                } catch (err) {
+                } catch {
                   setError('Failed to send inquiry. Please try again.')
                 } finally {
                   setIsSubmitting(false)
