@@ -165,7 +165,7 @@ export default function PricingPage() {
                     const errorData = await response.json()
                     setError(errorData.error || 'Failed to send inquiry')
                   }
-                } catch (err) {
+                } catch {
                   setError('Failed to send inquiry. Please try again.')
                 } finally {
                   setIsSubmitting(false)
