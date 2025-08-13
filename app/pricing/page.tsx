@@ -1,11 +1,20 @@
+"use client";
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { User, Building, GraduationCap, CheckCircle } from "lucide-react"
+import { useState } from "react"
 
 export default function PricingPage() {
+  const [showEnterpriseModal, setShowEnterpriseModal] = useState(false)
+  const [showInstitutionalModal, setShowInstitutionalModal] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("")
   return (
     <div className="min-h-screen bg-dark-bg flex flex-col">
       <Navigation />
@@ -73,7 +82,12 @@ export default function PricingPage() {
                 </ul>
                 <p className="text-sm text-slate-600 mb-4 text-center">Ideal for airlines, defense contractors, global logistics, and multinational operations seeking large-scale clarity and safety improvements.</p>
                 <div className="mt-auto w-full">
-                  <Button className="bg-amber-700 hover:bg-amber-800 text-white font-bold w-full">Contact Sales to Learn More</Button>
+                  <Button 
+                    className="bg-amber-700 hover:bg-amber-800 text-white font-bold w-full"
+                    onClick={() => setShowEnterpriseModal(true)}
+                  >
+                    Contact Sales to Learn More
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -94,13 +108,195 @@ export default function PricingPage() {
                 </ul>
                 <p className="text-sm text-slate-600 mb-4 text-center">Designed for universities, aerospace agencies, and public sector institutions focused on research, safety, and operational excellence.</p>
                 <div className="mt-auto w-full">
-                  <Button className="bg-amber-700 hover:bg-amber-800 text-white font-bold w-full">Request Institutional Info</Button>
+                  <Button 
+                    className="bg-amber-700 hover:bg-amber-800 text-white font-bold w-full"
+                    onClick={() => setShowInstitutionalModal(true)}
+                  >
+                    Request Institutional Info
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
+
+      {/* Enterprise Modal */}
+      {showEnterpriseModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl"
+              onClick={() => { setShowEnterpriseModal(false); setSubmitted(false); setError(""); }}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-slate-800">Enterprise Inquiry</h2>
+            {submitted ? (
+              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your inquiry! We'll be in touch soon.</div>
+            ) : (
+              <form className="space-y-4" onSubmit={async (e) => {
+                e.preventDefault()
+                setIsSubmitting(true)
+                setError("")
+                
+                const formData = new FormData(e.currentTarget)
+                const data = {
+                  type: 'enterprise',
+                  name: formData.get('name') as string,
+                  email: formData.get('email') as string,
+                  company: formData.get('company') as string,
+                  message: formData.get('message') as string,
+                }
+                
+                try {
+                  const response = await fetch('/api/inquiry', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                  })
+                  
+                  if (response.ok) {
+                    setSubmitted(true)
+                  } else {
+                    const errorData = await response.json()
+                    setError(errorData.error || 'Failed to send inquiry')
+                  }
+                } catch (err) {
+                  setError('Failed to send inquiry. Please try again.')
+                } finally {
+                  setIsSubmitting(false)
+                }
+              }}>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                    {error}
+                  </div>
+                )}
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Name</label>
+                  <Input name="name" placeholder="Your Name" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Email</label>
+                  <Input name="email" type="email" placeholder="you@company.com" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Company</label>
+                  <Input name="company" placeholder="Your Company" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Message</label>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell us about your enterprise needs..."
+                    rows={3}
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-amber-700 text-white hover:bg-amber-800"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+                </Button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Institutional Modal */}
+      {showInstitutionalModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl"
+              onClick={() => { setShowInstitutionalModal(false); setSubmitted(false); setError(""); }}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-slate-800">Institutional Inquiry</h2>
+            {submitted ? (
+              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your inquiry! We'll be in touch soon.</div>
+            ) : (
+              <form className="space-y-4" onSubmit={async (e) => {
+                e.preventDefault()
+                setIsSubmitting(true)
+                setError("")
+                
+                const formData = new FormData(e.currentTarget)
+                const data = {
+                  type: 'institutional',
+                  name: formData.get('name') as string,
+                  email: formData.get('email') as string,
+                  company: formData.get('company') as string,
+                  message: formData.get('message') as string,
+                }
+                
+                try {
+                  const response = await fetch('/api/inquiry', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                  })
+                  
+                  if (response.ok) {
+                    setSubmitted(true)
+                  } else {
+                    const errorData = await response.json()
+                    setError(errorData.error || 'Failed to send inquiry')
+                  }
+                } catch (err) {
+                  setError('Failed to send inquiry. Please try again.')
+                } finally {
+                  setIsSubmitting(false)
+                }
+              }}>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                    {error}
+                  </div>
+                )}
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Name</label>
+                  <Input name="name" placeholder="Your Name" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Email</label>
+                  <Input name="email" type="email" placeholder="you@institution.edu" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Institution</label>
+                  <Input name="company" placeholder="Your Institution" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Message</label>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell us about your institutional needs..."
+                    rows={3}
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-amber-700 text-white hover:bg-amber-800"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+                </Button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   )

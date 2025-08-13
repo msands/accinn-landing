@@ -1,3 +1,4 @@
+"use client";
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -6,8 +7,12 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
+import { useState } from "react"
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("")
   return (
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
@@ -92,46 +97,101 @@ export default function ContactPage() {
                   <CardTitle className="text-slate-800">Send us a message</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">First Name</label>
-                        <Input placeholder="John" />
+                  {submitted ? (
+                    <div className="text-center py-8">
+                      <div className="text-green-600 text-lg font-semibold mb-2">Thank you for your message!</div>
+                      <p className="text-slate-600">We'll get back to you soon.</p>
+                    </div>
+                  ) : (
+                    <form className="space-y-6" onSubmit={async (e) => {
+                      e.preventDefault()
+                      setIsSubmitting(true)
+                      setError("")
+                      
+                      const formData = new FormData(e.currentTarget)
+                      const data = {
+                        firstName: formData.get('firstName') as string,
+                        lastName: formData.get('lastName') as string,
+                        email: formData.get('email') as string,
+                        company: formData.get('company') as string,
+                        industry: formData.get('industry') as string,
+                        message: formData.get('message') as string,
+                      }
+                      
+                      try {
+                        const response = await fetch('/api/contact', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(data),
+                        })
+                        
+                        if (response.ok) {
+                          setSubmitted(true)
+                        } else {
+                          const errorData = await response.json()
+                          setError(errorData.error || 'Failed to send message')
+                        }
+                      } catch (err) {
+                        setError('Failed to send message. Please try again.')
+                      } finally {
+                        setIsSubmitting(false)
+                      }
+                    }}>
+                      {error && (
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                          {error}
+                        </div>
+                      )}
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">First Name</label>
+                          <Input name="firstName" placeholder="John" required />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
+                          <Input name="lastName" placeholder="Doe" required />
+                        </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
-                        <Input placeholder="Doe" />
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                        <Input name="email" type="email" placeholder="john@example.com" required />
                       </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                      <Input type="email" placeholder="john@example.com" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Company</label>
-                      <Input placeholder="Your Company" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Industry</label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
-                        <option>Select Industry</option>
-                        <option>Commercial Aviation</option>
-                        <option>General Aviation</option>
-                        <option>Aerospace</option>
-                        <option>Defense/Military</option>
-                        <option>Healthcare</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                      <Textarea
-                        placeholder="Tell us about your communication challenges and how we can help..."
-                        rows={4}
-                      />
-                    </div>
-                    <Button className="w-full bg-amber-700 hover:bg-amber-800 text-white">Send Message</Button>
-                  </form>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Company</label>
+                        <Input name="company" placeholder="Your Company" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Industry</label>
+                        <select name="industry" className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                          <option value="">Select Industry</option>
+                          <option value="Commercial Aviation">Commercial Aviation</option>
+                          <option value="General Aviation">General Aviation</option>
+                          <option value="Aerospace">Aerospace</option>
+                          <option value="Defense/Military">Defense/Military</option>
+                          <option value="Healthcare">Healthcare</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                        <Textarea
+                          name="message"
+                          placeholder="Tell us about your communication challenges and how we can help..."
+                          rows={4}
+                          required
+                        />
+                      </div>
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-amber-700 hover:bg-amber-800 text-white"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </Button>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
             </div>
