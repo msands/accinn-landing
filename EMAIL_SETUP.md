@@ -16,13 +16,15 @@ If you haven't already installed the addon, run:
 heroku addons:create mailertogo
 ```
 
-### 2. Get MailerToGo Credentials
+### 2. Get MailerToGo SMTP Credentials
 
-After installing the addon, you'll need to get your API credentials:
+After installing the addon, you'll need to get your SMTP credentials:
 
 ```bash
-heroku config:get MAILERTOGO_URL
-heroku config:get MAILERTOGO_TOKEN
+heroku config:get MAILERTOGO_SMTP_HOST
+heroku config:get MAILERTOGO_SMTP_PORT
+heroku config:get MAILERTOGO_SMTP_USERNAME
+heroku config:get MAILERTOGO_SMTP_PASSWORD
 ```
 
 ### 3. Set Environment Variables
@@ -30,8 +32,10 @@ heroku config:get MAILERTOGO_TOKEN
 Set the environment variables in your Heroku app:
 
 ```bash
-heroku config:set MAILERTOGO_URL="your_mailertogo_url_here"
-heroku config:set MAILERTOGO_TOKEN="your_mailertogo_token_here"
+heroku config:set MAILERTOGO_SMTP_HOST="your_smtp_host_here"
+heroku config:set MAILERTOGO_SMTP_PORT="your_smtp_port_here"
+heroku config:set MAILERTOGO_SMTP_USERNAME="your_smtp_username_here"
+heroku config:set MAILERTOGO_SMTP_PASSWORD="your_smtp_password_here"
 ```
 
 ### 4. Verify Configuration
@@ -41,6 +45,8 @@ Check that the environment variables are set correctly:
 ```bash
 heroku config | grep MAILERTOGO
 ```
+
+You should see all four SMTP variables listed.
 
 ## API Endpoints
 
@@ -83,7 +89,7 @@ To test the email functionality:
 ### Common Issues
 
 1. **"Email service not configured" error**
-   - Check that MAILERTOGO_URL and MAILERTOGO_TOKEN are set correctly
+   - Check that all four SMTP variables (MAILERTOGO_SMTP_HOST, MAILERTOGO_SMTP_PORT, MAILERTOGO_SMTP_USERNAME, MAILERTOGO_SMTP_PASSWORD) are set correctly
    - Verify the addon is properly installed
 
 2. **"Failed to send email" error**

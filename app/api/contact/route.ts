@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,21 +14,34 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Get MailerToGo credentials from environment variables
-    const mailerToGoUrl = process.env.MAILERTOGO_URL
-    const mailerToGoToken = process.env.MAILERTOGO_TOKEN
+    // Get MailerToGo SMTP credentials from environment variables
+    const smtpHost = process.env.MAILERTOGO_SMTP_HOST
+    const smtpPort = process.env.MAILERTOGO_SMTP_PORT
+    const smtpUsername = process.env.MAILERTOGO_SMTP_USERNAME
+    const smtpPassword = process.env.MAILERTOGO_SMTP_PASSWORD
 
-    if (!mailerToGoUrl || !mailerToGoToken) {
-      console.error('MailerToGo credentials not configured')
+    if (!smtpHost || !smtpPort || !smtpUsername || !smtpPassword) {
+      console.error('MailerToGo SMTP credentials not configured')
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
       )
     }
 
+    // Create transporter
+    const transporter = nodemailer.createTransporter({
+      host: smtpHost,
+      port: parseInt(smtpPort),
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: smtpUsername,
+        pass: smtpPassword,
+      },
+    })
+
     // Prepare email content
     const emailData = {
-      from: 'noreply@accent-innovations.com',
+      from: smtpUsername,
       to: 'katie.pierson@accent-innovations.com',
       subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `
@@ -52,23 +66,8 @@ ${message}
       `
     }
 
-    // Send email via MailerToGo
-    const response = await fetch(mailerToGoUrl, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${mailerToGoToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailData),
-    })
-
-    if (!response.ok) {
-      console.error('MailerToGo API error:', response.status, response.statusText)
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      )
-    }
+    // Send email via SMTP
+    await transporter.sendMail(emailData)
 
     return NextResponse.json({ success: true })
   } catch (error) {
