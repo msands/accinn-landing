@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     // Get MailerToGo SMTP credentials from environment variables
     const smtpHost = process.env.MAILERTOGO_SMTP_HOST
     const smtpPort = process.env.MAILERTOGO_SMTP_PORT
-    const smtpUsername = process.env.MAILERTOGO_SMTP_USERNAME
+    const smtpUsername = process.env.MAILERTOGO_SMTP_USER
     const smtpPassword = process.env.MAILERTOGO_SMTP_PASSWORD
 
     if (!smtpHost || !smtpPort || !smtpUsername || !smtpPassword) {
