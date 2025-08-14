@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
 
     // Prepare email content
     const emailData = {
-      from: smtpUsername,
+      from: 'noreply@accent-innovations.com',
       to: 'katie.pierson@accent-innovations.com',
       subject: `New Contact Form Submission from ${firstName} ${lastName}`,
       html: `

@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
     }
 
     const emailData = {
-      from: smtpUsername,
+      from: 'noreply@accent-innovations.com',
       to: 'katie.pierson@accent-innovations.com',
       subject,
       html: emailContent,
