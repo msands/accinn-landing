@@ -32,11 +32,14 @@ export async function POST(request: NextRequest) {
     const transporter = nodemailer.createTransport({
       host: smtpHost,
       port: parseInt(smtpPort),
-      secure: true, // true for 465, false for other ports
+      secure: parseInt(smtpPort) === 465, // true for 465, false for other ports
       auth: {
         user: smtpUsername,
         pass: smtpPassword,
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     })
 
     // Prepare email content based on inquiry type
