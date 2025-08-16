@@ -1,98 +1,79 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import sgMail from '@sendgrid/mail'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { type, name, email, company, message } = body
+    const { 
+      firstName, 
+      lastName, 
+      email, 
+      company, 
+      industry, 
+      message, 
+      type = 'general' 
+    } = body
 
-    // Validate required fields
-    if (!type || !name || !email) {
+    if (!firstName || !lastName || !email || !message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       )
     }
 
-    // Get MailerToGo SMTP credentials from environment variables
-    const smtpHost = process.env.MAILERTOGO_SMTP_HOST
-    const smtpPort = process.env.MAILERTOGO_SMTP_PORT
-    const smtpUsername = process.env.MAILERTOGO_SMTP_USER
-    const smtpPassword = process.env.MAILERTOGO_SMTP_PASSWORD
-
-    if (!smtpHost || !smtpPort || !smtpUsername || !smtpPassword) {
-      console.error('MailerToGo SMTP credentials not configured')
+    // Initialize SendGrid with API key
+    const apiKey = process.env.SENDGRID_API_KEY
+    if (!apiKey) {
+      console.error('SendGrid API key not configured')
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
       )
     }
 
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: parseInt(smtpPort),
-      secure: parseInt(smtpPort) === 465, // true for 465, false for other ports
-      auth: {
-        user: smtpUsername,
-        pass: smtpPassword,
-      },
-      tls: {
-        rejectUnauthorized: false
-      }
-    })
+    sgMail.setApiKey(apiKey)
 
-    // Prepare email content based on inquiry type
-    let subject = ''
-    let emailContent = ''
+    // Determine subject and content based on inquiry type
+    let subject = 'New Inquiry'
+    let inquiryType = 'General Inquiry'
     
-    switch (type) {
-      case 'enterprise':
-        subject = `Enterprise Inquiry: ${name}`
-        emailContent = `
-          <h2>New Enterprise Inquiry</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-          <p><strong>Message:</strong> ${message || 'No additional message'}</p>
-          <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-          <p>This person is interested in enterprise licensing, custom implementations, or volume pricing.</p>
-        `
-        break
-      case 'institutional':
-        subject = `Institutional Inquiry: ${name}`
-        emailContent = `
-          <h2>New Institutional Inquiry</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-          <p><strong>Message:</strong> ${message || 'No additional message'}</p>
-          <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-          <p>This person is interested in academic and government packages or strategic research partnerships.</p>
-        `
-        break
-      default:
-        subject = `General Inquiry: ${name}`
-        emailContent = `
-          <h2>New General Inquiry</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-          <p><strong>Message:</strong> ${message || 'No additional message'}</p>
-          <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-        `
+    if (type === 'enterprise') {
+      subject = 'New Enterprise Demo Request'
+      inquiryType = 'Enterprise Demo Request'
+    } else if (type === 'institutional') {
+      subject = 'New Institutional Information Request'
+      inquiryType = 'Institutional Information Request'
     }
 
     const emailData = {
-      from: 'noreply@accent-innovations.com',
       to: 'katie.pierson@accent-innovations.com',
+      from: 'noreply@accent-innovations.com', // This will be verified in SendGrid
       subject,
-      html: emailContent,
-      text: emailContent.replace(/<[^>]*>/g, '')
+      html: `
+        <h2>New ${inquiryType}</h2>
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+        <p><strong>Industry:</strong> ${industry || 'Not provided'}</p>
+        <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+      text: `
+New ${inquiryType}
+
+Name: ${firstName} ${lastName}
+Email: ${email}
+Company: ${company || 'Not provided'}
+Industry: ${industry || 'Not provided'}
+Inquiry Type: ${inquiryType}
+
+Message:
+${message}
+      `
     }
 
-    // Send email via SMTP
-    await transporter.sendMail(emailData)
+    await sgMail.send(emailData)
 
     return NextResponse.json({ success: true })
   } catch (error) {
