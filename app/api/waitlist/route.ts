@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     const emailData = {
       to: 'katie.pierson@accent-innovations.com',
-      from: 'noreply@accent-innovations.com', // This will be verified in SendGrid
+      from: process.env.SENDGRID_FROM_EMAIL || 'noreply@accent-innovations.com',
       subject: `New Waitlist Signup: ${name}`,
       html: `
         <h2>New Waitlist Signup</h2>
