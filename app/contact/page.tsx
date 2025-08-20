@@ -1,3 +1,4 @@
+"use client";
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -6,8 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
+import { useState } from "react"
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("")
+  const [showEnterpriseModal, setShowEnterpriseModal] = useState(false)
   return (
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
@@ -82,7 +88,12 @@ export default function ContactPage() {
                       For enterprise licensing, custom implementations, and volume pricing, contact our business
                       development team.
                     </p>
-                    <Button className="bg-amber-700 hover:bg-amber-800 text-white">Schedule Enterprise Demo</Button>
+                    <Button 
+                      className="bg-amber-700 hover:bg-amber-800 text-white"
+                      onClick={() => setShowEnterpriseModal(true)}
+                    >
+                      Schedule Enterprise Demo
+                    </Button>
                   </CardContent>
                 </Card>
               </div>
@@ -92,52 +103,195 @@ export default function ContactPage() {
                   <CardTitle className="text-slate-800">Send us a message</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">First Name</label>
-                        <Input placeholder="John" />
+                  {submitted ? (
+                    <div className="text-center py-8">
+                      <div className="text-green-600 text-lg font-semibold mb-2">Thank you for your message!</div>
+                                              <p className="text-slate-600">We&apos;ll get back to you soon.</p>
+                    </div>
+                  ) : (
+                    <form className="space-y-6" onSubmit={async (e) => {
+                      e.preventDefault()
+                      setIsSubmitting(true)
+                      setError("")
+                      
+                      const formData = new FormData(e.currentTarget)
+                      const data = {
+                        firstName: formData.get('firstName') as string,
+                        lastName: formData.get('lastName') as string,
+                        email: formData.get('email') as string,
+                        company: formData.get('company') as string,
+                        industry: formData.get('industry') as string,
+                        message: formData.get('message') as string,
+                      }
+                      
+                      try {
+                        const response = await fetch('/api/contact', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(data),
+                        })
+                        
+                        if (response.ok) {
+                          setSubmitted(true)
+                        } else {
+                          const errorData = await response.json()
+                          setError(errorData.error || 'Failed to send message')
+                        }
+                      } catch {
+                        setError('Failed to send message. Please try again.')
+                      } finally {
+                        setIsSubmitting(false)
+                      }
+                    }}>
+                      {error && (
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                          {error}
+                        </div>
+                      )}
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">First Name</label>
+                          <Input name="firstName" placeholder="John" required />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
+                          <Input name="lastName" placeholder="Doe" required />
+                        </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">Last Name</label>
-                        <Input placeholder="Doe" />
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                        <Input name="email" type="email" placeholder="john@example.com" required />
                       </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
-                      <Input type="email" placeholder="john@example.com" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Company</label>
-                      <Input placeholder="Your Company" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Industry</label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
-                        <option>Select Industry</option>
-                        <option>Commercial Aviation</option>
-                        <option>General Aviation</option>
-                        <option>Aerospace</option>
-                        <option>Defense/Military</option>
-                        <option>Healthcare</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                      <Textarea
-                        placeholder="Tell us about your communication challenges and how we can help..."
-                        rows={4}
-                      />
-                    </div>
-                    <Button className="w-full bg-amber-700 hover:bg-amber-800 text-white">Send Message</Button>
-                  </form>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Company</label>
+                        <Input name="company" placeholder="Your Company" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Industry</label>
+                        <select name="industry" className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                          <option value="">Select Industry</option>
+                          <option value="Commercial Aviation">Commercial Aviation</option>
+                          <option value="General Aviation">General Aviation</option>
+                          <option value="Aerospace">Aerospace</option>
+                          <option value="Defense/Military">Defense/Military</option>
+                          <option value="Healthcare">Healthcare</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                        <Textarea
+                          name="message"
+                          placeholder="Tell us about your communication challenges and how we can help..."
+                          rows={4}
+                          required
+                        />
+                      </div>
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-amber-700 hover:bg-amber-800 text-white"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                      </Button>
+                    </form>
+                  )}
                 </CardContent>
               </Card>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Enterprise Demo Modal */}
+      {showEnterpriseModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+            <button
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl"
+              onClick={() => { setShowEnterpriseModal(false); setSubmitted(false); setError(""); }}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-slate-800">Schedule Enterprise Demo</h2>
+            {submitted ? (
+              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your request! We&apos;ll be in touch soon to schedule your demo.</div>
+            ) : (
+              <form className="space-y-4" onSubmit={async (e) => {
+                e.preventDefault()
+                setIsSubmitting(true)
+                setError("")
+                
+                const formData = new FormData(e.currentTarget)
+                const data = {
+                  type: 'enterprise',
+                  name: formData.get('name') as string,
+                  email: formData.get('email') as string,
+                  company: formData.get('company') as string,
+                  message: formData.get('message') as string,
+                }
+                
+                try {
+                  const response = await fetch('/api/inquiry', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                  })
+                  
+                  if (response.ok) {
+                    setSubmitted(true)
+                  } else {
+                    const errorData = await response.json()
+                    setError(errorData.error || 'Failed to send request')
+                  }
+                } catch {
+                  setError('Failed to send request. Please try again.')
+                } finally {
+                  setIsSubmitting(false)
+                }
+              }}>
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                    {error}
+                  </div>
+                )}
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Name</label>
+                  <Input name="name" placeholder="Your Name" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Email</label>
+                  <Input name="email" type="email" placeholder="you@company.com" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Company</label>
+                  <Input name="company" placeholder="Your Company" required />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-800 mb-1">Message</label>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell us about your enterprise needs and preferred demo time..."
+                    rows={3}
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-amber-700 text-white hover:bg-amber-800"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Request Demo'}
+                </Button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

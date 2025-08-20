@@ -63,15 +63,38 @@ export function Navigation() {
                   </button>
                   <h2 className="text-2xl font-bold mb-4 text-bluegray">Join the Waitlist</h2>
                   <form
-                    action="https://docs.google.com/forms/d/e/1FAIpQLSfpuQlhbEW5_072bw_Mr7KR0_NfPBuu8mXm9zl9_mWfsH0j_Q/formResponse"
-                    method="POST"
-                    target="_blank"
                     className="space-y-4"
+                    onSubmit={async (e) => {
+                      e.preventDefault()
+                      
+                      const formData = new FormData(e.currentTarget)
+                      const data = {
+                        name: formData.get('name') as string,
+                        email: formData.get('email') as string,
+                      }
+                      
+                      try {
+                        const response = await fetch('/api/waitlist', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(data),
+                        })
+                        
+                        if (response.ok) {
+                          setShowWaitlist(false)
+                          // You could add a success message here
+                        }
+                      } catch (err) {
+                        console.error('Failed to submit waitlist form:', err)
+                      }
+                    }}
                   >
                     <div>
                       <label className="block text-sm font-medium text-bluegray mb-1">Name</label>
                       <input
-                        name="entry.2005620554"
+                        name="name"
                         type="text"
                         required
                         className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-tan"
@@ -81,7 +104,7 @@ export function Navigation() {
                     <div>
                       <label className="block text-sm font-medium text-bluegray mb-1">Email</label>
                       <input
-                        name="entry.1045781291"
+                        name="email"
                         type="email"
                         required
                         className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-tan"

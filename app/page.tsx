@@ -78,16 +78,34 @@ export default function Home() {
                 <div className="text-slate-800 text-lg font-semibold py-8">Thank you for joining the waitlist!</div>
               ) : (
                 <form
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSfpuQlhbEW5_072bw_Mr7KR0_NfPBuu8mXm9zl9_mWfsH0j_Q/formResponse"
-                  method="POST"
-                  target="_blank"
                   className="space-y-4"
-                  onSubmit={() => setSubmitted(true)}
+                  onSubmit={async (e) => {
+                    e.preventDefault()
+                    setSubmitted(true)
+                    
+                    const formData = new FormData(e.currentTarget)
+                    const data = {
+                      name: formData.get('name') as string,
+                      email: formData.get('email') as string,
+                    }
+                    
+                    try {
+                      await fetch('/api/waitlist', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                      })
+                    } catch (err) {
+                      console.error('Failed to submit waitlist form:', err)
+                    }
+                  }}
                 >
                   <div>
                     <label className="block text-sm font-medium text-slate-800 mb-1">Name</label>
                     <input
-                      name="entry.2005620554"
+                      name="name"
                       type="text"
                       required
                       className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-tan"
@@ -97,7 +115,7 @@ export default function Home() {
                   <div>
                     <label className="block text-sm font-medium text-slate-800 mb-1">Email</label>
                     <input
-                      name="entry.1045781291"
+                      name="email"
                       type="email"
                       required
                       className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-tan"
