@@ -7,13 +7,23 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 
-export default function ContactPage() {
+function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState("")
-  const [showEnterpriseModal, setShowEnterpriseModal] = useState(false)
+  const [preSelectedInquiry, setPreSelectedInquiry] = useState("")
+  
+  const searchParams = useSearchParams()
+  
+  useEffect(() => {
+    const inquiry = searchParams.get('inquiry')
+    if (inquiry) {
+      setPreSelectedInquiry(decodeURIComponent(inquiry))
+    }
+  }, [searchParams])
   return (
     <div className="min-h-screen bg-dark-bg">
       <Navigation />
@@ -90,7 +100,11 @@ export default function ContactPage() {
                     </p>
                     <Button 
                       className="bg-amber-700 hover:bg-amber-800 text-white"
-                      onClick={() => setShowEnterpriseModal(true)}
+                      onClick={() => {
+                        setPreSelectedInquiry("Enterprise Demo Request")
+                        document.querySelector('select[name="inquiryType"]')?.setAttribute('value', 'Enterprise Demo Request')
+                        document.querySelector('select[name="inquiryType"]')?.dispatchEvent(new Event('change'))
+                      }}
                     >
                       Schedule Enterprise Demo
                     </Button>
@@ -121,6 +135,7 @@ export default function ContactPage() {
                         email: formData.get('email') as string,
                         company: formData.get('company') as string,
                         industry: formData.get('industry') as string,
+                        inquiryType: formData.get('inquiryType') as string,
                         message: formData.get('message') as string,
                       }
                       
@@ -169,6 +184,23 @@ export default function ContactPage() {
                         <Input name="company" placeholder="Your Company" />
                       </div>
                       <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Inquiry Type</label>
+                        <select 
+                          name="inquiryType" 
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500" 
+                          required
+                          defaultValue={preSelectedInquiry}
+                        >
+                          <option value="">Select Inquiry Type</option>
+                          <option value="General Inquiries">General Inquiries</option>
+                          <option value="Enterprise Demo Request">Enterprise Demo Request</option>
+                          <option value="Institutional Information Request">Institutional Information Request</option>
+                          <option value="Investor or Funding Inquiry">Investor or Funding Inquiry</option>
+                          <option value="Product or Service Questions">Product or Service Questions</option>
+                          <option value="Partnership or Collaboration">Partnership or Collaboration</option>
+                        </select>
+                      </div>
+                      <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">Industry</label>
                         <select name="industry" className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
                           <option value="">Select Industry</option>
@@ -205,95 +237,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Enterprise Demo Modal */}
-      {showEnterpriseModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
-            <button
-              className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl"
-              onClick={() => { setShowEnterpriseModal(false); setSubmitted(false); setError(""); }}
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <h2 className="text-2xl font-bold mb-4 text-slate-800">Schedule Enterprise Demo</h2>
-            {submitted ? (
-              <div className="text-slate-800 text-lg font-semibold py-8">Thank you for your request! We&apos;ll be in touch soon to schedule your demo.</div>
-            ) : (
-              <form className="space-y-4" onSubmit={async (e) => {
-                e.preventDefault()
-                setIsSubmitting(true)
-                setError("")
-                
-                const formData = new FormData(e.currentTarget)
-                const data = {
-                  type: 'enterprise',
-                  name: formData.get('name') as string,
-                  email: formData.get('email') as string,
-                  company: formData.get('company') as string,
-                  message: formData.get('message') as string,
-                }
-                
-                try {
-                  const response = await fetch('/api/inquiry', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                  })
-                  
-                  if (response.ok) {
-                    setSubmitted(true)
-                  } else {
-                    const errorData = await response.json()
-                    setError(errorData.error || 'Failed to send request')
-                  }
-                } catch {
-                  setError('Failed to send request. Please try again.')
-                } finally {
-                  setIsSubmitting(false)
-                }
-              }}>
-                {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-                    {error}
-                  </div>
-                )}
-                <div>
-                  <label className="block text-sm font-medium text-slate-800 mb-1">Name</label>
-                  <Input name="name" placeholder="Your Name" required />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-800 mb-1">Email</label>
-                  <Input name="email" type="email" placeholder="you@company.com" required />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-800 mb-1">Company</label>
-                  <Input name="company" placeholder="Your Company" required />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-800 mb-1">Message</label>
-                  <Textarea
-                    name="message"
-                    placeholder="Tell us about your enterprise needs and preferred demo time..."
-                    rows={3}
-                  />
-                </div>
-                <Button 
-                  type="submit" 
-                  className="w-full bg-amber-700 text-white hover:bg-amber-800"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Sending...' : 'Request Demo'}
-                </Button>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
+
 
       <Footer />
     </div>
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContactForm />
+    </Suspense>
   )
 }
