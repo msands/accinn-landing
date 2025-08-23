@@ -4,9 +4,9 @@ import sgMail from '@sendgrid/mail'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { firstName, lastName, email, company, industry, message } = body
+    const { firstName, lastName, email, company, industry, inquiryType, message } = body
 
-    if (!firstName || !lastName || !email || !message) {
+    if (!firstName || !lastName || !email || !inquiryType || !message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -28,23 +28,25 @@ export async function POST(request: NextRequest) {
     const emailData = {
       to: 'katie.pierson@accent-innovations.com',
       from: process.env.SENDGRID_FROM_EMAIL || 'noreply@accent-innovations.com',
-      subject: `New Contact Form Submission from ${firstName} ${lastName}`,
+      subject: `New ${inquiryType} from ${firstName} ${lastName}`,
       html: `
-        <h2>New Contact Form Submission</h2>
+        <h2>New ${inquiryType}</h2>
         <p><strong>Name:</strong> ${firstName} ${lastName}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Company:</strong> ${company || 'Not provided'}</p>
         <p><strong>Industry:</strong> ${industry || 'Not provided'}</p>
+        <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
       text: `
-New Contact Form Submission
+New ${inquiryType}
 
 Name: ${firstName} ${lastName}
 Email: ${email}
 Company: ${company || 'Not provided'}
 Industry: ${industry || 'Not provided'}
+Inquiry Type: ${inquiryType}
 
 Message:
 ${message}
