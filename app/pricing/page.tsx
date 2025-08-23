@@ -142,9 +142,15 @@ export default function PricingPage() {
                 setError("")
                 
                 const formData = new FormData(e.currentTarget)
+                const fullName = formData.get('name') as string
+                const nameParts = fullName.split(' ')
+                const firstName = nameParts[0] || ''
+                const lastName = nameParts.slice(1).join(' ') || ''
+                
                 const data = {
                   type: 'enterprise',
-                  name: formData.get('name') as string,
+                  firstName,
+                  lastName,
                   email: formData.get('email') as string,
                   company: formData.get('company') as string,
                   message: formData.get('message') as string,
@@ -230,9 +236,15 @@ export default function PricingPage() {
                 setError("")
                 
                 const formData = new FormData(e.currentTarget)
+                const fullName = formData.get('name') as string
+                const nameParts = fullName.split(' ')
+                const firstName = nameParts[0] || ''
+                const lastName = nameParts.slice(1).join(' ') || ''
+                
                 const data = {
                   type: 'institutional',
-                  name: formData.get('name') as string,
+                  firstName,
+                  lastName,
                   email: formData.get('email') as string,
                   company: formData.get('company') as string,
                   message: formData.get('message') as string,
