@@ -21,12 +21,16 @@ export function Footer() {
                 “Transforming unclear communication with individualized accent and speech training for clear, confident operations.”
               </p>
               <div className="flex space-x-4">
-                <Button size="sm" variant="ghost" className="text-slate-400 hover:text-white">
-                  LinkedIn
-                </Button>
+                <Link href="https://www.linkedin.com/in/accent-innovations/" target="_blank" rel="noopener noreferrer">
+                  <Button size="sm" variant="ghost" className="text-slate-400 hover:text-white">
+                    LinkedIn
+                  </Button>
+                </Link>
+                {/* Twitter link commented out for future use
                 <Button size="sm" variant="ghost" className="text-slate-400 hover:text-white">
                   Twitter
                 </Button>
+                */}
               </div>
             </div>
             <div>
