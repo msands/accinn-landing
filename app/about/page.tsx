@@ -4,6 +4,43 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Award, Users, Globe, Target, ArrowRight } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About Dr. Katie Pierson - Aviation Communication Expert | Accent Innovations",
+  description: "Meet Dr. Katie Pierson, award-winning speech-language pathologist and founder of Accent Innovations. Pioneer of aviation's first accent modification protocol for pilots.",
+  keywords: [
+    "Dr. Katie Pierson",
+    "aviation communication expert",
+    "speech language pathologist",
+    "accent modification",
+    "aviation safety",
+    "pilot communication",
+    "speech therapy",
+    "aviation research"
+  ],
+  openGraph: {
+    title: "About Dr. Katie Pierson - Aviation Communication Expert | Accent Innovations",
+    description: "Meet Dr. Katie Pierson, award-winning speech-language pathologist and founder of Accent Innovations. Pioneer of aviation's first accent modification protocol for pilots.",
+    url: "https://accent-innovations.com/about",
+    images: [
+      {
+        url: "/katie.webp",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Katie Pierson - Aviation Communication Expert",
+      },
+    ],
+  },
+  twitter: {
+    title: "About Dr. Katie Pierson - Aviation Communication Expert",
+    description: "Meet Dr. Katie Pierson, award-winning speech-language pathologist and founder of Accent Innovations.",
+    images: ["/katie.webp"],
+  },
+  alternates: {
+    canonical: "https://accent-innovations.com/about",
+  },
+}
 
 export default function AboutPage() {
   return (

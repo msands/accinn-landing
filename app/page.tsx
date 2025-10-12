@@ -8,6 +8,44 @@ import { Plane, Shield, TrendingUp, ArrowRight, CheckCircle, Award, Users, Targe
 import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "AI-Driven Aviation Communication Solutions | Accent Innovations",
+  description: "Solve the $33 billion aviation miscommunication problem with patent-pending AI speech technology. Enhance pilot communication safety and reduce operational costs.",
+  keywords: [
+    "aviation communication",
+    "pilot training",
+    "AI speech technology",
+    "aviation safety",
+    "accent modification",
+    "pilot communication",
+    "aviation miscommunication",
+    "speech training",
+    "aviation technology"
+  ],
+  openGraph: {
+    title: "AI-Driven Aviation Communication Solutions | Accent Innovations",
+    description: "Solve the $33 billion aviation miscommunication problem with patent-pending AI speech technology. Enhance pilot communication safety and reduce operational costs.",
+    url: "https://accent-innovations.com",
+    images: [
+      {
+        url: "/hero-plane.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AI-Driven Aviation Communication Solutions",
+      },
+    ],
+  },
+  twitter: {
+    title: "AI-Driven Aviation Communication Solutions | Accent Innovations",
+    description: "Solve the $33 billion aviation miscommunication problem with patent-pending AI speech technology.",
+    images: ["/hero-plane.jpg"],
+  },
+  alternates: {
+    canonical: "https://accent-innovations.com",
+  },
+}
 
 export default function Home() {
   const [showWaitlist, setShowWaitlist] = useState(false)
