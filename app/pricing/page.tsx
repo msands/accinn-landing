@@ -6,6 +6,41 @@ import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { User, Building, GraduationCap, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Pricing - Aviation Communication Training Plans | Accent Innovations",
+  description: "Choose the perfect aviation communication training plan for your needs. Individual pilot training, institutional programs, and enterprise solutions available.",
+  keywords: [
+    "aviation communication pricing",
+    "pilot training cost",
+    "accent modification pricing",
+    "aviation speech therapy cost",
+    "pilot communication training",
+    "institutional aviation training"
+  ],
+  openGraph: {
+    title: "Pricing - Aviation Communication Training Plans | Accent Innovations",
+    description: "Choose the perfect aviation communication training plan for your needs. Individual pilot training, institutional programs, and enterprise solutions available.",
+    url: "https://accent-innovations.com/pricing",
+    images: [
+      {
+        url: "/pricing.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aviation Communication Training Pricing",
+      },
+    ],
+  },
+  twitter: {
+    title: "Pricing - Aviation Communication Training Plans",
+    description: "Choose the perfect aviation communication training plan for your needs.",
+    images: ["/pricing.jpg"],
+  },
+  alternates: {
+    canonical: "https://accent-innovations.com/pricing",
+  },
+}
 
 export default function PricingPage() {
   return (

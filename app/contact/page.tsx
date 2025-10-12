@@ -9,6 +9,41 @@ import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, MapPin, Calendar } from "lucide-react"
 import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Contact Accent Innovations - Aviation Communication Experts",
+  description: "Get in touch with Accent Innovations for aviation communication solutions. Contact Dr. Katie Pierson and our team for pilot training and speech technology.",
+  keywords: [
+    "contact accent innovations",
+    "aviation communication contact",
+    "pilot training contact",
+    "Dr. Katie Pierson contact",
+    "aviation speech therapy",
+    "accent modification contact"
+  ],
+  openGraph: {
+    title: "Contact Accent Innovations - Aviation Communication Experts",
+    description: "Get in touch with Accent Innovations for aviation communication solutions. Contact Dr. Katie Pierson and our team for pilot training and speech technology.",
+    url: "https://accent-innovations.com/contact",
+    images: [
+      {
+        url: "/contact.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Accent Innovations",
+      },
+    ],
+  },
+  twitter: {
+    title: "Contact Accent Innovations - Aviation Communication Experts",
+    description: "Get in touch with Accent Innovations for aviation communication solutions.",
+    images: ["/contact.jpg"],
+  },
+  alternates: {
+    canonical: "https://accent-innovations.com/contact",
+  },
+}
 
 function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
