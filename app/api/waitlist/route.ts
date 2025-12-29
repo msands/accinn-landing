@@ -1,14 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server'
 import sgMail from '@sendgrid/mail'
+import { validateEmail, validateText, sanitizeForHtml } from '@/lib/validation'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const { name, email } = body
 
+    // Validate required fields
     if (!name || !email) {
       return NextResponse.json(
         { error: 'Missing required fields' },
+        { status: 400 }
+      )
+    }
+
+    // Validate and sanitize inputs with size limits
+    const nameValid = validateText(name, 200)
+    const emailValid = validateEmail(email)
+
+    if (!nameValid.valid || !emailValid.valid) {
+      return NextResponse.json(
+        { error: 'Invalid input data. Please check your fields and try again.' },
         { status: 400 }
       )
     }
@@ -23,24 +36,32 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const contactEmail = process.env.CONTACT_EMAIL || 'katie.pierson@accent-innovations.com'
+    const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'noreply@accent-innovations.com'
+
     sgMail.setApiKey(apiKey)
 
+    // Sanitize all user inputs for HTML output
+    const sanitizedName = sanitizeForHtml(nameValid.sanitized)
+    const sanitizedEmail = sanitizeForHtml(emailValid.sanitized)
+    const dateStr = new Date().toLocaleString()
+
     const emailData = {
-      to: 'katie.pierson@accent-innovations.com',
-      from: process.env.SENDGRID_FROM_EMAIL || 'noreply@accent-innovations.com',
-      subject: 'waitlist',
+      to: contactEmail,
+      from: fromEmail,
+      subject: 'New Waitlist Signup',
       html: `
         <h2>New Waitlist Signup</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        <p><strong>Name:</strong> ${sanitizedName}</p>
+        <p><strong>Email:</strong> ${sanitizedEmail}</p>
+        <p><strong>Date:</strong> ${dateStr}</p>
       `,
       text: `
 New Waitlist Signup
 
-Name: ${name}
-Email: ${email}
-Date: ${new Date().toLocaleString()}
+Name: ${nameValid.sanitized}
+Email: ${emailValid.sanitized}
+Date: ${dateStr}
       `
     }
 
